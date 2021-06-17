@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210616213917) do
+ActiveRecord::Schema.define(version: 20210617070529) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "customer_id", null: false
@@ -47,14 +47,6 @@ ActiveRecord::Schema.define(version: 20210616213917) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string   "last_name",                           null: false
-    t.string   "first_name",                          null: false
-    t.string   "kana_last_name",                      null: false
-    t.string   "kana_first_name",                     null: false
-    t.string   "postal_code",                         null: false
-    t.string   "address",                             null: false
-    t.string   "phone_number",                        null: false
-    t.boolean  "is_deleted",                          null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -84,10 +76,10 @@ ActiveRecord::Schema.define(version: 20210616213917) do
     t.string   "name"
     t.integer  "freight"
     t.integer  "billing_amount"
-    t.integer  "payment_method"
-    t.integer  "order_status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "payment_method", default: 0
+    t.integer  "order_status",   default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -96,9 +88,9 @@ ActiveRecord::Schema.define(version: 20210616213917) do
     t.string   "image_id"
     t.text     "description"
     t.integer  "price"
-    t.boolean  "product_status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "product_status", default: true
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end
