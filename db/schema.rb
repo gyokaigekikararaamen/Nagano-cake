@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 20210616213917) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "cart_products", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "product_id"
+    t.integer  "amount"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

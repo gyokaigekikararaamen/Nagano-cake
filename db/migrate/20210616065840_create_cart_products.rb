@@ -1,9 +1,9 @@
 class CreateCartProducts < ActiveRecord::Migration[5.0]
   def change
     create_table :cart_products do |t|
-      t.integer.customer_id
-      t.integer.product_id
-      t.integer.amount
+      t.integer :customer_id, null: false
+      t.integer :product_id, null: false
+      t.integer :amount, null: false
 
       t.timestamps
     end
