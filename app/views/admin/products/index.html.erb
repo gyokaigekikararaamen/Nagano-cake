@@ -1,0 +1,34 @@
+<div class='container'>
+ <div class='row'>
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+   <h2>商品一覧</h2>
+    <table class='table'>
+     <thead>
+      <tr>
+       <th>商品ID</th>
+       <th>商品名</th>
+       <th>税抜価格</th>
+       <th>ジャンル</th>
+       <th>ステータス</th>
+      </tr>
+     </thead>
+     <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id%></td>
+        <td>
+         <%= link_to admin_product_path(product.id) do %>
+          <%= product.name%>
+         <% end %> 
+        </td>
+        <td><%= product.price %></td>
+        <td><%= product.genre %></td>
+        <td><%= product.product_status %></td>
+       </tr>
+       <% end %>
+      </tbody>
+     </table>
+     <%= paginate @product %>
+  </div>
+ </div>
+</div>
