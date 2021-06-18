@@ -7,10 +7,10 @@
   </div>
   <!--商品表示部分-->
   <div class="row">
-    <%= @products.each do |product|%>
+    <%= @products.each do |product| %>
       <div class="col-md-3">
         <div class="card shadow-sm">
-          <%= attachment_image_tag product_image :image%>
+          <%= link_to (attachment_image_tag product, :image, size: '60x60'), product_path(product.id) %>
           <%= product.name %>
           <p>¥<%= product.price%></p>
         </div>
