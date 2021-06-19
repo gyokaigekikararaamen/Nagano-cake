@@ -33,6 +33,6 @@ class Admin::ProductsController < ApplicationController
 
   private
   def producut_params
-     params.require(:producut).permit(:genre_id,:name,:image_id,:description,:price,:product_status)
+     params.require(:producut).permit(:genre_id,:name,:image,:description,:price,:product_status)
   end
 end
