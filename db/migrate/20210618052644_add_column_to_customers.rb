@@ -9,4 +9,5 @@ class AddColumnToCustomers < ActiveRecord::Migration[5.2]
     add_column :customers,:phone_number,:string
     add_column :customers,:is_deleted,:boolean
   end
+  
 end
