@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
  devise_for :admins
- devise_for :customers
+ devise_for :customers, controllers: {registrations: 'customers/registrations',sessions: 'customers/sessions' }
   root 'homes#top'
   get 'home/about' => 'homes#about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :custmers, except: [:destroy]
-  get 'customers/unsubscribe' => 'customers#unsubscribe'
-  patch 'customers/hide' => 'customers#hide'
+  get 'customer' => 'customers#show'
+  get 'customer/edit' => 'customers#edit'
+  patch 'customer' => 'customers#update'
+  get 'customer/unsubscribe' => 'customers#unsubscribe'
+  patch 'customer/hide' => 'customers#hide'
 
  resources :addresses, only: [ :create, :index, :edit, :update,:destroy]
 
