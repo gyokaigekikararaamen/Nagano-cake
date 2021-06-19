@@ -11,7 +11,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
      genre.id = product.genre_id
-     @product = Product.new(prodacut_params)
+     @product = Product.new(producut_params)
      @product.save
      redirect_to  admin_product_path(@product.id)
   end
@@ -32,7 +32,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
-  def prodacut_params
-     params.require(:rodacut).permit(:genre_id,:name,:image_id,:description,:price,:product_status)
+  def producut_params
+     params.require(:producut).permit(:genre_id,:name,:image_id,:description,:price,:product_status)
   end
 end

@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20210617070529) do
   end
 
   create_table "cart_products", force: :cascade do |t|
-    t.integer  "customer_id"
-    t.integer  "product_id"
-    t.integer  "amount"
+    t.integer  "customer_id", null: false
+    t.integer  "product_id",  null: false
+    t.integer  "amount",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
