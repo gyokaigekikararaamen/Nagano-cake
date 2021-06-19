@@ -9,6 +9,7 @@ class CartProductsController < ApplicationController
   end
 
   def index
+    
   end
 
   def update
@@ -19,6 +20,7 @@ class CartProductsController < ApplicationController
   end
 
   def destroy_all
+    
   end
 
   private
