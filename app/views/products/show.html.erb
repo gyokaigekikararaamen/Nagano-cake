@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <%= attachment_image_tag @product :image, class: "col-md-3" %>
+    <div class="col-md-4">
+      <h2><%= @product.name %></h2>
+      <p><%= @product.description %></p>
+      <p><strong>¥<%= @product.price * 1.1 %></strong>(税込)</p>
+      <!--商品個数選択とカートに入れるボタン-->
+      <% form_with model: @cart_product, local: true do |f| %>
+        <%= f.select :amount, [["1個", "1"], ["２個", "2"], ["２個", "2"], ["3個", "3"], ["4個", "4"], ["5個", "5"]], include_blank: "個数選択" %>
+        <%= f.submit "カートに入れる", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
