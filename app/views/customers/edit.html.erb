@@ -1,0 +1,45 @@
+<h2>会員情報修正</h2>
+<%= form_with model:@customer, local:true do |f| %>
+　<div class="field">
+    名前
+    <%= f.label :first_name,"(姓)" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    <%= f.label :last_name,"(名)" %>
+    <%= f.text_field :last_name, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    フリガナ
+    <%= f.label :kana_first_name,"(セイ)" %>
+    <%= f.text_field :kana_first_name, autocomplete: "kana_first_name" %>
+    <%= f.label :kana_last_name,"(メイ)" %>
+    <%= f.text_field :kana_last_name, autocomplete: "kana_last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
+    <%= f.text_field :postal_code, autocomplete: "postal_code" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address,"住所" %>
+    <%= f.text_field :address, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number,"電話番号(ハイフンなし)" %>
+    <%= f.text_field :phone_number, autocomplete: "phone_number" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :email,"メールアドレス" %>
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集内容を保存" %>
+  </div>
+
+<% end %>
+
+<%= link_to "退会する", customer_unsubscribe_path %>
