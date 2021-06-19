@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
-              <li><%= link_to "マイページ", customer_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "マイページ", customer_path(cutomer.id), class: "btn btn-outline-secondary mr-3" %></li>
               <li><%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary mr-3" %></li>
               <li><%= link_to "カート", cart_products_path, class: "btn btn-outline-secondary mr-3" %></li>
               <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary mr-3" %></li>
