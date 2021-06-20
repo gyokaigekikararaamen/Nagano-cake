@@ -5,34 +5,40 @@ class Admin::ProductsController < ApplicationController
   end
 
   def index
-    @prodacts = Product.page(params[:page]).reverse_order
-    @genre = Genre.all
+    @products = Product.page(params[:page]).reverse_order
+    @genres = Genre.all
   end
 
   def create
-     genre.id = product.genre_id
-     @product = Product.new(prodacut_params)
+    
+     @product=Product.new(post_producut_params)
      @product.save
      redirect_to  admin_product_path(@product.id)
   end
 
   def show
-     @product = Product.find([:id])
+   
+     @product = Product.find(params[:id])
   end
 
   def edit
-     @product = Product.find([:id])
-     
+     @product = Product.find(params[:id])
+      @genre = Genre.all
   end
 
   def update
-     @product = Product.find([:id])
-     @product.update
+     @product = Product.find(params[:id])
+     @product.update(post_producut_params)
      redirect_to  admin_product_path(@product.id)
   end
 
   private
-  def prodacut_params
-     params.require(:rodacut).permit(:genre_id,:name,:image_id,:description,:price,:product_status)
+  def post_producut_params
+     params.require(:product).permit(:genre_id,:name,:image,:description,:price,:product_status)
   end
+ def set_genres
+  @genres = Genre.all
+ end
+
+
 end
