@@ -1,7 +1,4 @@
 class OrdersController < ApplicationController
-  def new
-    @order = Order.new
-  end
 
   def index
     @orders = Order.find(current_user.id)
@@ -12,5 +9,23 @@ class OrdersController < ApplicationController
     @orders = Order.find(params[:id])
     @order = Ordered_product.find(params[:id])
   end
+  
+  def new
+    @order = Order.new
+  end
+  
+  def create
+  end
+  
+  def confirm
+  end
+  
+  def conplete
+  end
 
+  private
+  
+  def order_params
+    require(:order).permit(:payment_method, :postal_code, :adress, :name)
+  end
 end
