@@ -8,5 +8,10 @@ class Product < ApplicationRecord
  end
   attachment :image
   enum product_status: { 販売中: true, 販売停止: false }
-  
+  def save_genres(genre_ids)
+    genre_ids.each do |genre_id|
+      product_genre = Genre.find_by(id: genre_id)
+      self.genres << product_genre
+    end
+  end
 end

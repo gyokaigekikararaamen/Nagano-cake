@@ -12,24 +12,24 @@
        </tr>
        <tr>
         <th> <%= f.label "商品名" %></th>
-        <td> <%= f.text_field :name %></td>
+        <td> <%= f.text_field :name, size: 30 %></td>
        </tr>
        <tr>
         <th> <%= f.label "商品説明" %></th>
-        <td> <%= f.text_area :description %></td>
+        <td> <%= f.text_area :description, size: "30x5"%></td>
        </tr>
        <tr>
         <th> <%= f.label "ジャンル" %></th>
-        <td> <%= f.collection_select(:genre_id, @genre, :id, :name, {prompt: "-----"}) %></td>
+        <td> <%= f.collection_select(:genre_id, @genre, :id, :name, {prompt: "--選択してください--"})  %></td>
        </tr>
        <tr>
         <th> <%= f.label "税抜価格"%></th>
-        <td><%= f.number_field :price %></td>
+        <td><%= f.number_field :price %>円</td>
        </tr>
        <tr>
         <th> <%= f.label "販売ステータス" %></th>
-        <td><%= f.radio_button :product_status, true %><%= f.label :product_status, '販売中', value: true %> 
-        <%= f.radio_button :product_status, false %><%= f.label :product_status, '販売停止中', value: false %>
+        <td><%= f.radio_button :product_status, '販売中' ,checked: true%>販売中<%= f.radio_button :product_status, '販売停止' %> 販売停止
+        
         </td>
        </tr>
       </table>

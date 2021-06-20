@@ -4,7 +4,7 @@
  
    <div class="col-sm-12 col-md-10 col-lg-5 px-5 px-sm-0 mx-auto">
    
-    <%= form_with model: @product, url: admin_products_path(@product.id), local:true do |f| %> 
+    <%= form_with model: @product, url: admin_product_path(@product.id), local:true do |f| %> 
      <table border="0">
        <tr>
         <th> <%= f.label "商品画像"%></th>
@@ -28,8 +28,8 @@
        </tr>
        <tr>
         <th> <%= f.label "販売ステータス" %></th>
-        <td><%= f.radio_button :product_status, true %><%= f.label :product_status, '販売中', value: true %> 
-        <%= f.radio_button :product_status, false %><%= f.label :product_status, '販売停止中', value: false %>
+        <td>
+        <%= f.radio_button :product_status, '販売中' ,checked: true%>販売中<%= f.radio_button :product_status, '販売停止' %> 販売停止
         </td>
        </tr>
       </table>
