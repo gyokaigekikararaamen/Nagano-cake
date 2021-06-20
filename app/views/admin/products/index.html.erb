@@ -1,8 +1,7 @@
 <div class='container'>
- <div class='row'>
-  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-   <h2>商品一覧</h2>
-    <table class='table'>
+ <h2>商品一覧</h2>
+   
+    <table class="table table-striped">
      <thead>
       <tr>
        <th>商品ID</th>
@@ -22,13 +21,13 @@
          <% end %> 
         </td>
         <td><%= product.price %></td>
-        <td><%= product.genre %></td>
+        <td><%= product.genre.name%></td>
         <td><%= product.product_status %></td>
        </tr>
        <% end %>
       </tbody>
      </table>
-     <%= paginate @product %>
-  </div>
- </div>
+     <%= paginate @products %>
+  
+
 </div>
