@@ -1,19 +1,21 @@
 class Admin::ProductsController < ApplicationController
   def new
     @product = Product.new
-    @genre = Genre.all
+  
   end
 
   def index
-    @products = Product.page(params[:page]).reverse_order
+    @products = Product.order("id DESC").page(params[:page]).reverse_order
     @genres = Genre.all
   end
 
   def create
-    
-     @product=Product.new(post_producut_params)
-     @product.save
+    @product=Product.new(post_producut_params)
+    if @product.save
      redirect_to  admin_product_path(@product.id)
+    else
+     render :new
+    end 
   end
 
   def show
@@ -23,13 +25,15 @@ class Admin::ProductsController < ApplicationController
 
   def edit
      @product = Product.find(params[:id])
-      @genre = Genre.all
   end
 
   def update
      @product = Product.find(params[:id])
-     @product.update(post_producut_params)
+     if@product.update(post_producut_params)
      redirect_to  admin_product_path(@product.id)
+     else
+     render :edit
+     end 
   end
 
   private
