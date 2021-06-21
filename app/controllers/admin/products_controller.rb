@@ -10,14 +10,14 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    
+
      @product=Product.new(post_producut_params)
      @product.save
      redirect_to  admin_product_path(@product.id)
   end
 
   def show
-   
+
      @product = Product.find(params[:id])
   end
 
