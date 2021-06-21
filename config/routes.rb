@@ -19,7 +19,6 @@ Rails.application.routes.draw do
  get 'orders/complete' => 'orders#complete'
 
  resources :products, only: [:index, :show]
- 
 
  resources :cart_products, only: [:create,:index,:destroy,:update]
  delete 'cart_products'  => 'cart_products#destroy_all', as:'destroy_cart_products'
