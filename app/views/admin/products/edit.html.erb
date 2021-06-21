@@ -1,38 +1,43 @@
 <div class='container'>
-  <h4 ><span class="bg-light">商品編集s<span></h4>
- <div class='row'>
- 
+  <h4 class=" bg-light text-left mt-5 w-25 text-center" >商品編集</h4>
+ <div class='row '>
+     
    <div class="col-sm-12 col-md-10 col-lg-5 px-5 px-sm-0 mx-auto">
    
     <%= form_with model: @product, url: admin_product_path(@product.id), local:true do |f| %> 
-     <table border="0">
+     <table class="mt-5">
        <tr>
         <th> <%= f.label "商品画像"%></th>
-        <td> <%= f.attachment_field :image %></td>
+        <td class="d-inline-block  ml-2"> <%= f.attachment_field :image %></td>
        </tr>
        <tr>
-        <th> <%= f.label "商品名" %></th>
-        <td> <%= f.text_field :name %></td>
+        <th > <%= f.label "商品名" %></th>
+        <td class="d-inline-block mt-2 ml-2"> <%= f.text_field :name, size: 30%></td>
        </tr>
        <tr>
         <th> <%= f.label "商品説明" %></th>
-        <td> <%= f.text_area :description %></td>
+        <td class="d-inline-block mt-2 ml-2"> <%= f.text_area :description, size: "30x5" %></td>
        </tr>
        <tr>
         <th> <%= f.label "ジャンル" %></th>
-        <td> <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "-----"}) %></td>
+        <td class="d-inline-block mt-2 ml-2"> <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "-----"}) %></td>
        </tr>
        <tr>
         <th> <%= f.label "税抜価格"%></th>
-        <td><%= f.number_field :price %>円</td>
+        <td class="d-inline-block mt-2 ml-2"><%= f.number_field :price %>円</td>
        </tr>
        <tr>
         <th> <%= f.label "販売ステータス" %></th>
-        <td>
+        <td class="d-inline-block mt-2 ml-2">
        <%= f.radio_button :product_status, '販売中' ,checked: true%>販売中<%= f.radio_button :product_status, '販売停止' %> 販売停止
        </tr>
+      <tr class="d-block mt-3">
+       <td >
+        <%= f.submit "変更を保存する" , class: 'btn btn-success' %>
+      </td>
+      </tr>  
       </table>
-     <%= f.submit "変更を保存する" , class: 'btn btn-success' %>
+    
     <% end %> 
    </div>
   </div>
