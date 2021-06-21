@@ -5,13 +5,13 @@ class CartProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart_product.product_id = @product.id
     @cart_product.customer_id = current_customer.id
-
     @cart_product.save
     redirect_to cart_products_path
   end
 
   def index
     @cart_products = CartProduct.where(customer_id: current_customer.id)
+    @total_price = @cart_products.sum(:price)
   end
 
   def update
@@ -27,8 +27,7 @@ class CartProductsController < ApplicationController
   end
 
   def destroy_all
-    @cart_products = CartProduct.where(customer_id: current_customer.id)
-    @cart_products.destroy
+    CartProduct.where(customer_id: current_customer.id).destroy_all
     redirect_to cart_products_path
   end
 

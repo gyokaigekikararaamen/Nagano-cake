@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :cart_products, dependent: :destroy, through: :producs
+  has_many :cart_products, dependent: :destroy
   has_many :customers, through: :cart_products
   
   has_many :ordered_products, dependent: :destroy
