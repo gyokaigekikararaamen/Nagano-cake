@@ -3,9 +3,4 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-         enum is_deleted: {
-            退会: false, 有効: false
-         }
-
 end
