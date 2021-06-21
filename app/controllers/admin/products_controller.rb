@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
 
   def index
     @products = Product.order("id DESC").page(params[:page]).reverse_order
-    @genres = Genre.all
+   
   end
 
   def create
@@ -40,9 +40,7 @@ class Admin::ProductsController < ApplicationController
   def post_producut_params
      params.require(:product).permit(:genre_id,:name,:image,:description,:price,:product_status)
   end
- def set_genres
-  @genres = Genre.all
- end
+
 
 
 end
