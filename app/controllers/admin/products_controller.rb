@@ -19,7 +19,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> origin/develop
      @product = Product.find(params[:id])
   end
 
