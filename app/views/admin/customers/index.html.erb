@@ -7,7 +7,7 @@
         </div>
       </div>
       <table class="table ml-5 mt-4">
-        <thead>
+        <thead class="bg-light">
           <tr>
             <td>会員ID</td>
             <td colspan="1">氏名</td>
@@ -25,7 +25,7 @@
             </td>
             <td><%= customer.email%></td>
             <td></td>
-            <td><%= customer.is_deleted.to_i %></td>
+            <td><%= customer.is_deleted %></td>
           </tr>
         </tbody>
         <% end %>

@@ -4,6 +4,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         enum is_deleted: {有効: false, 退会: true}
+         enum is_deleted: {
+            退会: false, 有効: false
+         }
 
 end

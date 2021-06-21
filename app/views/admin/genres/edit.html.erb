@@ -1,14 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mt-4">
-      <h5>ジャンル編集</h5>
-      <%= form_with model:@genre, url: admin_genre_path, local:true do |f| %>
-      <table>
+    <div class="col-md-8 mt-4">
+      <div class="col-md-5">
+        <h5 class="bg-light text-center">ジャンル編集</h5>
+      </div>
+        <%= form_with model:@genre, url: admin_genre_path, local:true do |f| %>
+      <table class="mt-5">
         <tbody>
           <tr>
             <th>ジャンル名</th>
-            <th><%= f.text_field :name, class:"form-control" %></th>
-            <th><%= f.submit "変更を保存", class:"btn btn-success" %></th>
+            <th><div class="ml-5"><%= f.text_field :name, class:"form-control" %></div></th>
+            <th><div class="ml-5"><%= f.submit "変更を保存", class:"btn btn-success" %></div></th>
           </tr>
         </tbody>
       </table>
