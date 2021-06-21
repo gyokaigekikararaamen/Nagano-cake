@@ -28,8 +28,8 @@
        </tr>
        <tr>
         <th> <%= f.label "販売ステータス" %></th>
-        <td><%= f.radio_button :product_status, '販売中' ,checked: true%>販売中<%= f.radio_button :product_status, '売り切れ' %> 売り切れ
-        
+        <td>
+        　<%= f.radio_button :product_status, ‘販売中’ ,checked: true%>販売中<%= f.radio_button :product_status, ‘販売停止’ %> 販売停止
         </td>
        </tr>
       </table>
