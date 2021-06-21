@@ -1,10 +1,12 @@
 class CartProductsController < ApplicationController
+
   def create
-    product = Product.find(params[:id])
-    cart_product = CartProduct.new(cart_product_params)
-    cart_product.customer_id = current_customer.id
-    cart_product.product_id = product.id
-    cart_product.save
+    @cart_product = CartProduct.new(cart_product_params)
+    @product = Product.find(params[:id])
+    @cart_product.product_id = @product.id
+    @cart_product.customer_id = current_customer.id
+
+    @cart_product.save
     redirect_to cart_products_path
   end
 
@@ -13,7 +15,7 @@ class CartProductsController < ApplicationController
   end
 
   def update
-    @cart_product = CartProduct.find(parama[:id])
+    @cart_product = CartProduct.find(params[:id])
     @cart_product.update(cart_product_params)
     redirect_to cart_products_path
   end
@@ -32,7 +34,7 @@ class CartProductsController < ApplicationController
 
   private
   def cart_product_params
-    params.require(:cart_product).permit(:amount)
+    params.permit(:amount)
   end
 
 end
