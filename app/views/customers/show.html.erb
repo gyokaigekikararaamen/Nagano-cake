@@ -1,13 +1,39 @@
-<h2>マイページ</h2>
-<h2>登録情報</h2><%= link_to "編集する", customer_edit_path %>
-<%= @customer.first_name %>
-<%= @customer.last_name %>
-<%= @customer.kana_first_name %>
-<%= @customer.kana_last_name %>
-<%= @customer.postal_code %>
-<%= @customer.address %>
-<%= @customer.phone_number %>
-<%= @customer.email %>
-<h2>配送先</h2><%= link_to "一覧を見る", addresses_path %>
-<h2>注文履歴</h2><%= link_to "一覧を見る", orders_path %>
-<%= link_to "ログアウト", destroy_customer_session_path,method: :DELETE %>
+<div class="container">
+  <h2 class="my-5">マイページ</h2>
+  <h2>登録情報</h2><%= link_to "編集する", customer_edit_path,class: "btn btn-outline-secondary mr-3" %>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th style="width: 20%">氏名</th>
+        <td ><%= @customer.first_name %><%= @customer.last_name %></td>
+      </tr>
+
+      <tr>
+        <th>カナ</th>
+        <td><%= @customer.kana_first_name %><%= @customer.kana_last_name %></td>
+      </tr>
+
+      <tr>
+        <th>郵便番号</th>
+        <td><%= @customer.postal_code %></td>
+      </tr>
+
+      <tr>
+        <th>住所</th>
+        <td><%= @customer.address %></td>
+      </tr>
+
+      <tr>
+        <th>電話番号</th>
+        <td><%= @customer.phone_number %></td>
+      </tr>
+
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @customer.email %></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="my-5">配送先</h2><%= link_to "一覧を見る", addresses_path,class: "btn btn-outline-secondary mr-3" %>
+  <h2 class="my-5">注文履歴</h2><%= link_to "一覧を見る", orders_path,class: "btn btn-outline-secondary mr-3" %>
+</div>
