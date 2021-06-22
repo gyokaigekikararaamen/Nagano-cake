@@ -10,9 +10,7 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :addresses, dependent: :destroy
 
-           enum is_deleted: {
-             有効: false, 退会: true
-         }
+      
 
          validates :first_name, presence: true
          validates :last_name, presence: true

@@ -14,7 +14,7 @@
      <tbody>
       <% @orders.each do |order| %>
       <tr>
-        <td><%= oerder.created_at%></td>
+        <td><%= oerder.strftime('%Y/%m/%d %H:%M:%S')%></td>
         <td><%= order.customer.name%></td>
         <td><%= oerder.created_at.count %></td>
         <td><%= order.order_status%></td>
