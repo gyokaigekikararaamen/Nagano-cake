@@ -11,14 +11,10 @@
   </div>
 
   <!--個数選択、カートに入れるボタン-->
-  <div class="row">
-    <table class="table table-borderless col-md-4 offset-md-5">
-        <tr>
-          <%= form_with model: @cart_product, url: create_cart_products_path, local: true do |f| %>
-          <th><%= f.select :amount, [["1個", "1"], ["2個", "2"], ["3個", "3"], ["4個", "4"], ["5個", "5"]], {include_blank: "個数選択"}, {class: "form-control"} %></th>
-          <td><%= f.submit "カートに入れる", class: "btn btn-success" %></td>
-        </tr>
-      <% end %>
-    </table>
+  <div class="row col-md-4 offset-md-5">
+    <%= form_with model: @cart_product, url: create_cart_products_path, class: "d-flex", local: true do |f| %>
+      <%= f.select :amount, [["1個", "1"], ["2個", "2"], ["3個", "3"], ["4個", "4"], ["5個", "5"]], {include_blank: "個数選択"}, {class: "form-control"} %>
+      <%= f.submit "カートに入れる", class: "btn btn-success ml-4" %>
+    <% end %>
   </div>
 </div>
