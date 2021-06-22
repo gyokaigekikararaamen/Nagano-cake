@@ -18,9 +18,7 @@ Rails.application.routes.draw do
  post 'orders/confirm' => 'orders#confirm'
  get 'orders/complete' => 'orders#complete'
 
- resources :products, only: [:index, :show] do
- resources :cart_products, only: [:create]
-end
+ resources :products, only: [:index, :show] 
  resources :cart_products, only: [:create, :index,:destroy,:update]
  delete 'cart_products'  => 'cart_products#destroy_all'
 
