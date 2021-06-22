@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="col-md-3">
+        <div class="customers-tag mt-4 bg-light text-center">
+            <h5>会員一覧</h5>
+        </div>
+      </div>
+      <table class="table ml-5 mt-4">
+        <thead class="bg-light">
+          <tr>
+            <td>会員ID</td>
+            <td colspan="1">氏名</td>
+            <td colspan="2">メールアドレス</td>
+            <td>ステータス</td>
+          </tr>
+        </thead>
+        <% @customer.each do |customer| %>
+        <tbody>
+          <tr>
+            <td><%= customer.id%></td>
+            <td><%= link_to admin_customer_path(customer.id) do %>
+              <%= customer.first_name %><%= customer.last_name %>
+            <% end %>
+            </td>
+            <td><%= customer.email%></td>
+            <td></td>
+            <td><%= customer.is_deleted %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+      <%= paginate @customer %>
+
+    </div>
+  </div>
+</div>
