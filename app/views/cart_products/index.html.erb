@@ -41,11 +41,11 @@
       <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
     </div>
     
-    <div class="colmd-3 ml-auto">
-      <table class="table ml-auto">
+    <div class="colmd-4 ml-auto">
+      <table class="table table-bordered ml-auto">
         <tr>
-          <th class="bg-light">合計金額</th>
-          <td><%=  %></td>
+          <th class="bg-light px-5">合計金額</th>
+          <td class="px-5"><%= @total_price.round.to_s %></td>
         </tr>
       </table>
     </div>
