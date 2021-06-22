@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="col-md-6">
+        <div class="customers-tag mt-4 bg-light text-center">
+            <h5><%= @customer.first_name %><%= @customer.last_name %>の会員詳細</h5>
+        </div>
+      </div>
+      <table class="table mt-4 table-borderless">
+        <thead>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>会員ID</td>
+            <td><%= @customer.id%></td>
+          </tr>
+
+          <tr>
+            <td>氏名</td>
+            <td><%= @customer.first_name %><%= @customer.last_name %></td>
+          </tr>
+
+          <tr>
+            <td>フリガナ</td>
+            <td><%= @customer.kana_first_name %><%= @customer.kana_last_name %></td>
+          </tr>
+
+          <tr>
+            <td>郵便番号</td>
+            <td><%= @customer.postal_code %></td>
+          </tr>
+
+          <tr>
+            <td>住所</td>
+            <td><%= @customer.address%></td>
+          </tr>
+
+          <tr>
+            <td>電話番号</td>
+            <td><%= @customer.phone_number %></td>
+          </tr>
+
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @customer.email%></td>
+          </tr>
+
+          <tr>
+            <td>会員ステータス</td>
+            <td><%= @customer.is_deleted %></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+      <div class="col-md-6 mx-auto ml-5">
+        <div class=""><%=link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success" %>
+        <%= link_to "注文履歴一覧を見る", admin_orders_path, class:"btn btn-primary ml-5" %>
+      </div>
+    </div>
+  </div>
+</div>
