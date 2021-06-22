@@ -35,7 +35,6 @@
     <%= label_tag("address_2", "新しいお届け先") %>
   </div>
 
-  <%= form_with model: @order, local:true do |f| %>
   <%= label :postal_code, "郵便番号" %>
   <%= f.text_field :postal_code %>
 
@@ -50,3 +49,4 @@
  <%= submit_tag("確認画面へ進む") %>
 
 <% end %>
+

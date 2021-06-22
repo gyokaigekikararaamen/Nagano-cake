@@ -1,7 +1,4 @@
 class OrdersController < ApplicationController
-  def new
-    @order = Order.new
-  end
 
   def save
     @order = Order.new
@@ -39,6 +36,19 @@ class OrdersController < ApplicationController
   def show
     @orders = Order.find(params[:id])
     @order = Ordered_product.find(params[:id])
+  end
+
+  def new
+    @order = Order.new
+  end
+
+  def create
+  end
+
+  def confirm
+  end
+
+  def conplete
   end
 
   def confirm
