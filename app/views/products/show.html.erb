@@ -1,0 +1,22 @@
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-5">
+      <%= attachment_image_tag @product, :image, class: "img-fluid max-width: 100%" %>
+    </div>
+    <div class="col-md-7">
+      <h3><strong><%= @product.name %></strong></h3>
+      <p class="mt-3"><%= @product.description %></p>
+      <h5 class="mt-5"><strong>¥<%= @product.add_tax_price %></strong>(税込)</h5>
+    </div>
+  </div>
+
+  <!--個数選択、カートに入れるボタン-->
+  <div class="row col-md-4 offset-md-5">
+    <%= form_with model: @cart_product, url: create_cart_products_path, class: "d-flex", local: true do |f| %>
+      <%= f.select :amount, [["1個", "1"], ["2個", "2"], ["3個", "3"], ["4個", "4"], ["5個", "5"]], {include_blank: "個数選択"}, {class: "form-control"} %>
+      <%= f.submit "カートに入れる", class: "btn btn-success ml-4" %>
+    <% end %>
+  </div>
+</div>
+
