@@ -11,7 +11,6 @@ class CartProductsController < ApplicationController
 
   def index
     @cart_products = CartProduct.where(customer_id: current_customer.id)
-    @total_price = @cart_products.sum(:price)
   end
 
   def update
