@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
   
-  def home
+  def top
+    @products = Product.page(params[:page]).per(4).reverse_order
   end
   
   def about
