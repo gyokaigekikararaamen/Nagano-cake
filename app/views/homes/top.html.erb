@@ -1,7 +1,7 @@
 <div class ="container">
   <div class ="row">
-    <div class="mx-auto col-md-6 p-4">
-      <p>ようこそNagano Cakeへ!<br>
+    <div class="mx-auto col-md-6 p-4 bg-light mt-4">
+      <p class="text-center">ようこそNagano Cakeへ!<br>
       このサイトは、ケーキ販売のECサイトになります。<br>
       会員でない方も商品の閲覧は可能ですが、<br>
       購入には会員登録が必要になります。</p>
@@ -10,11 +10,15 @@
   
   <h1>新着商品</h1>
   <div class="row">
-    <div class="mx-auto">
-      ここに新着商品が入ります
-      
-    </div>
-    
+    <% @products.each do |product| %>
+      <div class="col-md-3">
+        <div class="card shadow-sm mt-3">
+          <%= link_to (attachment_image_tag product, :image, class: "card-img-top"), product_path(product.id) %>
+          <p class="ml-3"><%= product.name %></p>
+          <p class="ml-3">¥<%= product.price%></p>
+        </div>
+      </div>
+    <% end %>
   </div>
   
   <div class="row">
