@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-sm-7 col-md-4">
       <h1 class="d-md-inline">商品一覧</h1>
       <p class="d-md-inline">( 全<%= @products_all.count %>件 )</p>
     </div>
@@ -8,11 +8,11 @@
   <!--商品表示部分-->
   <div class="row">
     <% @products.each do |product| %>
-      <div class="col-md-3">
-        <div class="card shadow-sm mt-3">
-          <%= link_to (attachment_image_tag product, :image, class: "card-img-top"), product_path(product.id) %>
+      <div class="col-sm-7 col-md-3 mt-4">
+        <div class="card shadow-sm h-100 ">
+          <%= link_to (attachment_image_tag product, :image, class: "card-img-top img-fluid"), product_path(product.id) %>
           <p class="p-2"><%= product.name %></p>
-          <p class="p-2">¥<%= product.price%></p>
+          <p class="p-2">¥<%= product.price.to_s(:delimited) %></p>
         </div>
       </div>
     <% end %>
