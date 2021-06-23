@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
- devise_for :admins
+  devise_for :admins,controllers:{
+   sessions: 'admins/sessions'
+  }
+ # devise_for :admins, controllers: {
+ #    sessions:      'admins/sessions',
+ #    passwords:     'admins/passwords',
+ #    registrations: 'admins/registrations'
+ #  }
  devise_for :customers
 
   root 'homes#top'
@@ -15,9 +22,10 @@ Rails.application.routes.draw do
 
  resources :addresses, only: [ :create, :index, :edit, :update,:destroy]
 
+ get 'orders/confirm/:id' => 'orders#confirm', as: 'orders_confirm'
+ get 'orders/complete/:id' => 'orders#complete', as: 'orders_complete'
  resources :orders, only: [:new, :create, :index, :show,]
- post 'orders/confirm' => 'orders#confirm'
- get 'orders/complete' => 'orders#complete'
+ post 'orders/new' => 'orders#save'
 
 
  resources :products, only: [:index, :show]
