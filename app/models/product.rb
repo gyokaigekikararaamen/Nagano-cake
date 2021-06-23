@@ -9,7 +9,7 @@ class Product < ApplicationRecord
    (self.price * 1.10).round
  end
   attachment :image
-  enum product_status: { "販売中": 0, "販売停止": 1 }
+  enum product_status: { 販売中: 0, 販売停止: 1 }
   def save_genres(genre_ids)
     genre_ids.each do |genre_id|
       product_genre = Genre.find_by(id: genre_id)
