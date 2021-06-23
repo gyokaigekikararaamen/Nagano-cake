@@ -1,12 +1,8 @@
 class Product < ApplicationRecord
   has_many :cart_products, dependent: :destroy
-<<<<<<< HEAD
-  has_many :ordered_products, dependent: :destroy 
-=======
   has_many :customers, through: :cart_products
   
   has_many :ordered_products, dependent: :destroy
->>>>>>> origin/develop
   belongs_to :genre, optional: true
 
  def  add_tax_price

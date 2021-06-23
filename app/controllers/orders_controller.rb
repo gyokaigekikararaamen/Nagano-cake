@@ -11,12 +11,21 @@ class OrdersController < ApplicationController
   
   def new
     @order = Order.new
+   
+    
   end
   
   def create
+  
+   
   end
+   
+   
+  
+
   
   def confirm
+    
   end
   
   def conplete
@@ -28,8 +37,7 @@ class OrdersController < ApplicationController
     redirect_to orders_confirm_path(params[:id])
   end
 
-  def confirm
-  end
+  
 
   def create
     @order = Order.find(params[:id])
@@ -46,4 +54,4 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:postal_code, :address, :name)
   end
 
-end
+  end
