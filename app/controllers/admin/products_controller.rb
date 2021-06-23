@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+
+
   def new
     @product = Product.new
 
@@ -15,12 +17,10 @@ class Admin::ProductsController < ApplicationController
     if @product.save
      redirect_to  admin_product_path(@product.id)
     else
-     render :new
+     redirect_to  new_admin_product_path
     end
-  end
 
   def show
-
      @product = Product.find(params[:id])
   end
 
@@ -34,7 +34,7 @@ class Admin::ProductsController < ApplicationController
      if@product.update(post_product_params)
      redirect_to  admin_product_path(@product.id)
      else
-     render :edit
+     redirect_to  edit_admin_product_path(@product.id)
      end
   end
 
@@ -42,7 +42,6 @@ class Admin::ProductsController < ApplicationController
   def post_product_params
      params.require(:product).permit(:genre_id,:name,:image,:description,:price)
   end
-
 
 
 end

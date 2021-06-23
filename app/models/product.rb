@@ -16,10 +16,11 @@ class Product < ApplicationRecord
       self.genres << product_genre
     end
   end
-#  validates :genre_id, presence: true
-#  validates :name, presence: true
-#  validates :image, presence: true
-#  validates :description, presence: true
-#  validates :price, presence: true
-#  validates :product_status, presence: true
+
+ validates :genre_id, presence: true
+ validates :name, presence: true
+ validates :image, presence: true
+ validates :description, presence: true
+ validates :price, presence: true
+ validates :product_status, presence: true
 end
