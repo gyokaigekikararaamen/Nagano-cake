@@ -1,8 +1,17 @@
+<<<<<<< HEAD
+<div class="container">
+  <div class ="row mt-5">
+    <p class="col-md-3 bg-light text-center"><strong>注文履歴一覧</strong></p>
+    <%= link_to "新規登録",   new_admin_product_path, class: "btn btn-success ml-auto" %>
+    <table class="table border mt-3">
+    
+=======
 <div class='container'>
  <h2>注文一覧</h2>
 
     <table class="table table-striped">
 
+>>>>>>> origin/develop
      <thead>
       <tr>
        <th>購入日時</th>
@@ -13,7 +22,7 @@
      <tbody>
       <% @orders.each do |order| %>
       <tr>
-        <td><%= oerder.created_at%></td>
+        <td><%= l oerder.created_at%></td>
         <td><%= order.customer.name%></td>
         <td><%= oerder.created_at.count %></td>
         <td><%= order.order_status%></td>
