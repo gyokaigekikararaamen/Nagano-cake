@@ -1,0 +1,73 @@
+<div class='container'>
+ <h4> 注文履歴詳細</h4>
+ <div class='row'>
+  
+   <div class="col-8">    
+     <table border="0">
+       <tr>
+        <td>購入者</td>
+        <td><%=@order.customer.name %></td>
+       </tr> 
+       <tr>
+        <td>購入日時</td>
+         <td><%= @order.strftime('%Y/%m/%d') %></td>
+       </tr> 
+       <tr>
+        <td>配送先</td>
+        <td><%= @order.postal_code%></td>
+        <td><%= @order.address%></td>
+        <td><%= @order.name%></td>
+       </tr>
+       <tr>
+        <td>支払い方法</td>
+        <td><%= @order.payment_method%></td>
+       </tr>
+       <%= form_with model: @order,url: admin_order_path(@order.id), local:true do |f| %> 
+       <tr>
+        <td>注文ステータス</td>
+        <td> <%= f.select (:order_status,Order.order_status.keys,{prompt: "--選択してください--"})  %></td>
+        <td> <%= f.submit "更新" , class: 'btn btn-success' %></td>
+       </tr>
+       <% end %>
+      </table> 
+     </div>
+     <table class="table border mt-3">
+      <thead>
+       <tr class="bg-light">
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th>制作ステータス</th>
+       </thead>
+       <tbody>
+        <% @ordered_products.each do |ordered_products| %>
+         <tr>
+          <td><%= ordered_products.product.name %></td>
+          <td><%= ordered_products.price%></td>
+          <td><%= ordered_products.amount%></td>
+          <td><%= ordered_products.amount* ordered_products.price%></td>
+          <%= form_with model: order_products,url:  admin_path(ordered_products.id), local:true do |f| %> 
+          <td> <%= f.select (:order_products_status,Order.order_products_status.keys,{prompt: "--選択してください--"})  %></td>
+          <td> <%= f.submit "更新" , class: 'btn btn-success' %></td>
+          </tr>
+         <% end %>
+       </tbody>
+      </table>
+      <div class="col-3">
+       <table>
+        <tr>
+         <th>商品合計</th>
+         <td><%=@total_price%>円</td>
+         <th>送料</th>
+         <td>800円</td>
+         <th>商品合計</th>
+         <td><%=@total_price+800 %>円</td>
+        </tr>
+       </table>
+      </div>
+  
+ 
+ </div>    
+</div>     
+     

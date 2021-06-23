@@ -1,6 +1,6 @@
 class CartProductsController < ApplicationController
 
-  def create
+def create
     @cart_product = CartProduct.new(cart_product_params)
     @product = Product.find(params[:id])
     @cart_product.product_id = @product.id
