@@ -1,6 +1,5 @@
 class Admin::ProductsController < ApplicationController
-   before_action :if_not_admin
-
+  
   
   def new
     @product = Product.new
@@ -43,10 +42,5 @@ class Admin::ProductsController < ApplicationController
      params.require(:product).permit(:genre_id,:name,:image,:description,:price,:product_status)
   end
 
-private
-  def if_not_admin
-    redirect_to  new_admin_session_path unless  admin_signed_in?
-    
-  end
 
 end
