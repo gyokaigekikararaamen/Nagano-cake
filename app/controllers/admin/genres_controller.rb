@@ -1,6 +1,5 @@
 class Admin::GenresController < ApplicationController
   protect_from_forgery
-　
   def new
     @genre = Genre.new
     @genres = Genre.all
