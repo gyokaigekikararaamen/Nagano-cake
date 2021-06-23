@@ -35,6 +35,7 @@ namespace :admin do
 
     resources :genres, only: [:new, :create, :edit, :update]
   end
-
+  # resources 内に入れると admin/admin/customer#hide を参照してしまうため外へ記述しました。
+    put 'admin/customers/hide/:id' => 'admin/customers#hide', as: 'admin_customer_hide'
 
 end

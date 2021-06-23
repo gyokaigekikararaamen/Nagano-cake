@@ -52,8 +52,18 @@
           <tr>
             <td>会員ステータス</td>
             <td>
-                <%= f.radio_button :is_deleted, '有効',checked: true %> 有効
-                <%= f.radio_button :is_deleted, '退会' %>退会
+
+                <!--<= f.radio_button :is_deleted, :false %>-->
+                <!--<= f.label :is_deleted_false, "有効" %>-->
+                <!--<= f.radio_button :is_deleted, :true %>-->
+                <!--<= f.label :is_deleted_true, "退会" %>-->
+                <% if @customer.is_deleted != false %>
+                  <%= link_to '有効', admin_customer_hide_path(@customer, post: {is_deleted: false}), method: :put, class: "btn btn-success" %>
+                <% else %>
+                  <%= link_to '退会', admin_customer_hide_path(@customer, post: {is_deleted: true}), method: :put, class: "btn btn-danger" %>
+                <% end %>
+
+
             </td>
           </tr>
         </tbody>

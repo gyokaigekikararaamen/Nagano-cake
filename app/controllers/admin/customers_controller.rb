@@ -11,6 +11,19 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def unsubscribe
+  end
+
+  def hide
+    @customer = Customer.find(params[:id])
+    if @customer.is_deleted == false
+      @customer.update(is_deleted: true)
+    else
+      @customer.update(is_deleted: false)
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   def update
     customer = Customer.find(params[:id])
     customer.update(admin_customer_params)
