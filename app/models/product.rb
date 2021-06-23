@@ -15,7 +15,8 @@ class Product < ApplicationRecord
       product_genre = Genre.find_by(id: genre_id)
       self.genres << product_genre
     end
-  end
+  end    
+ 
  validates :genre_id, presence: true
  validates :name, presence: true
  validates :image, presence: true
