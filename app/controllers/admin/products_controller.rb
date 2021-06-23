@@ -8,7 +8,6 @@ class Admin::ProductsController < ApplicationController
 
   def index
     @products = Product.order("id DESC").page(params[:page]).reverse_order
-   
   end
 
   def create
