@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
- devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
-  }
+ devise_for :admins
  devise_for :customers
- 
+
   root 'homes#top'
   get 'home/about' => 'homes#about'
 
@@ -24,7 +20,7 @@ Rails.application.routes.draw do
  get 'orders/complete' => 'orders#complete'
 
 
- resources :products, only: [:index, :show] 
+ resources :products, only: [:index, :show]
  resources :cart_products, only: [:create, :index,:destroy,:update]
  delete 'cart_products'  => 'cart_products#destroy_all'
 

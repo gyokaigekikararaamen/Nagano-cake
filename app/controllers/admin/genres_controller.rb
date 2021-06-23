@@ -1,6 +1,6 @@
 class Admin::GenresController < ApplicationController
   protect_from_forgery
-　
+
   def new
     @genre = Genre.new
     @genres = Genre.all
@@ -26,7 +26,7 @@ class Admin::GenresController < ApplicationController
 private
 def genre_params
   params.require(:genre).permit(:name)
-  
+
 end
 
 end
