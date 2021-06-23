@@ -1,34 +1,5 @@
 class OrdersController < ApplicationController
 
-  def save
-    @order = Order.new
-    @order.customer_id = current_customer.id
-    @order.freght = "800"
-    if request.post? then
-       if params[:payment_method] == "0" then
-       else
-          @order.payment_method = "1"
-       end
-    end
-    if request.post? then
-       if params[:address] == "0" then
-          @order.postal_code = current_customer.postal_code
-          @order.address = current_customer.address
-          @order.name = ("current_customer.first_name" + "current_customer.last_name")
-       elsif params[:address] == "1" then
-          @order.postal_code =1
-          @order.address =1
-          @order.name =1
-       else
-          @order.postal_code =1
-          @order.address =1
-          @order.name =1
-       end
-    end
-    @order.save
-    redirect_to orders_confirm_path
-  end
-
   def index
     @orders = current_customer.orders
   end
@@ -43,25 +14,56 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new
+
+    sum = 0
+		current_customer.cart_products.each do |cart_product|
+			sum += (cart_product.product.price * 1.1) * cart_product.amount
+		end
+
+    @order.freight = 800
+    @order.billing_amount =  sum
+    @order.customer_id = current_customer.id
+    if params[:address].to_i == 0
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.first_name + current_customer.last_name
+    elsif params[:address].to_i == 1
+      address = Address.find(params[:chosed_address])
+      @order.postal_code = address.postal_code
+      @order.address = address.address
+      @order.name = address.name
+    else
+      @order.address_params
+    end
+
+    @order.save
+
+    if @order.postal_code.presence && @order.address.presence && @order.name.presence
+			 redirect_to orders_confirm_path(@order.id)
+		else
+			 redirect_to orders_new_path
+		end
+
   end
 
   def confirm
+    @order = Order.find(params[:id])
   end
 
   def conplete
-  end
-
-  def confirm
-  end
-
-  def create
     @order = Order.find(params[:id])
-    @order.save
-    redirect_to orders_complete_path
+    current_customer.cart_products.each do |cart_product|
+			ordered_product = OrderedProduct.new
+			ordered_product.order_id = @order.id
+			ordered_product.item_id = cart_product.product.id
+			ordered_product.amount = cart_product.amount
+			ordered_product.price = cart_product.product.price * 1.1
+			ordered_product.save
+		end
+    current_customer.cart_products.destroy_all
   end
 
-  def complete
-  end
 
   private
 
