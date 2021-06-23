@@ -1,0 +1,45 @@
+<div class="container">
+  <h2 class="my-5">注文情報確認</h2>
+  <table class="table table-bordered table-layout:fixed width:100%">
+      <thead>
+        <tr>
+          <td style="width: 30%">商品</td>
+          <td style="width: 20%">単価(税込み)</td>
+          <td style="width: 10%">数量</td>
+          <td style="width: 20%">小計</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_customer.cart_products.each do |cart_product| %>
+          <tr>
+            <td><%= cart_product.product.name %></td>
+            <td><%= cart_product.product.price * 1.1 %></td>
+            <td><%= cart_product.amount %></td>
+            <td><%= cart_product.product.price * 1.1 * cart_product.amount %></td>
+          </tr>
+        <% end %>
+        <tr></tr>
+      </tbody>
+    </table>
+    <table class="table table-bordered col-3">
+      <tbody>
+        <tr>
+          <td>送料</td>
+          <td><%= @order.freight %></td>
+        </tr>
+        <tr>
+          <td>商品合計</td>
+          <td><%= @order.billing_amount %></td>
+        </tr>
+        <tr>
+          <td>請求額</td>
+          <td><%= @order.freight + @order.billing_amount %></td>
+        </tr>
+      </tbody>
+    </table>
+  <h4>支払情報</h4><%= @order.payment_method %>
+  <div class="my-5">
+    <h4>お届け先</h4>〒<%= @order.postal_code %>　<%= @order.address %></br>　<%= @order.name %></br>
+  </div>
+  <%=link_to "注文を確定する", orders_complete_path(params[:id]),class: "btn btn-outline-secondary mr-3" %>
+</div>
