@@ -19,6 +19,7 @@ class Admin::ProductsController < ApplicationController
     else
      redirect_to  new_admin_product_path
     end
+  end
 
   def show
      @product = Product.find(params[:id])
