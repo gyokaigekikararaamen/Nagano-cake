@@ -14,27 +14,29 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new
+    @order = Order.new(order_params)
 
-    sum = 0
+    billing_amount = 0
 		current_customer.cart_products.each do |cart_product|
-			sum += (cart_product.product.price * 1.1) * cart_product.amount
+			 billing_amount += (cart_product.product.price * 1.1) * cart_product.amount
 		end
 
     @order.freight = 800
-    @order.billing_amount =  sum
+    @order.billing_amount =   billing_amount.floor
     @order.customer_id = current_customer.id
-    if params[:address].to_i == 0
+    @order.payment_method = params[:payment_method].to_i
+
+    if params[:address_order].to_i == 0
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
-    elsif params[:address].to_i == 1
+    elsif params[:address_order].to_i == 1
       address = Address.find(params[:chosed_address])
       @order.postal_code = address.postal_code
       @order.address = address.address
       @order.name = address.name
-    else
-      @order.address_params
+    elsif params[:address_order].to_i == 2
+
     end
 
     @order.save
@@ -68,7 +70,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name)
+    params.permit(:postal_code, :address, :name)
   end
 
 end
