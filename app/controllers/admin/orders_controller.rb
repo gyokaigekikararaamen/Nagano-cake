@@ -18,12 +18,12 @@ class Admin::OrdersController < ApplicationController
      render :show
      end
   end
- 
+
   private
  def post_producut_params
  params.require(:order).permit(:order_status)
- end   
- 
+ end
+
  def if_not_admin
    redirect_to admin_session_path unless admin_signed_in?
  end
