@@ -53,19 +53,22 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-  def conplete
+  def complete
     @order = Order.find(params[:id])
     current_customer.cart_products.each do |cart_product|
 			ordered_product = OrderedProduct.new
 			ordered_product.order_id = @order.id
-			ordered_product.item_id = cart_product.product.id
+			ordered_product.product_id = cart_product.product.id
 			ordered_product.amount = cart_product.amount
 			ordered_product.price = cart_product.product.price * 1.1
 			ordered_product.save
 		end
     current_customer.cart_products.destroy_all
+    orders_thanks_path
   end
 
+  def thanks
+  end
 
   private
 
