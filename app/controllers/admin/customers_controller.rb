@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
 
   def index
      @customer = Customer.page(params[:page]).reverse_order
-    
+
   end
 
   def show
@@ -36,7 +36,7 @@ class Admin::CustomersController < ApplicationController
   def admin_customer_params
      params.require(:customer).permit(:first_name, :last_name, :kana_first_name, :kana_last_name, :postal_code, :address, :phone_number, :email, :is_deleted)
   end
-  
-  
+
+
 
 end

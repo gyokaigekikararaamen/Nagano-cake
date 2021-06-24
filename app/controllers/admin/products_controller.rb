@@ -1,14 +1,14 @@
 class Admin::ProductsController < ApplicationController
-  
-  
+   before_action :if_not_admin
+
   def new
     @product = Product.new
-  
+
   end
 
   def index
     @products = Product.order("id DESC").page(params[:page]).reverse_order
-   
+
   end
 
   def create
@@ -17,7 +17,7 @@ class Admin::ProductsController < ApplicationController
      redirect_to  admin_product_path(@product.id)
     else
      redirect_to  new_admin_product_path
-    end 
+    end
   end
 
   def show
@@ -34,7 +34,7 @@ class Admin::ProductsController < ApplicationController
      redirect_to  admin_product_path(@product.id)
      else
      redirect_to  edit_admin_product_path(@product.id)
-     end 
+     end
   end
 
   private
@@ -42,5 +42,8 @@ class Admin::ProductsController < ApplicationController
      params.require(:product).permit(:genre_id,:name,:image,:description,:price,:product_status)
   end
 
+  def if_not_admin
+   redirect_to admin_session_path unless admin_signed_in?
+  end
 
 end
