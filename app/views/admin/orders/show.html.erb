@@ -10,7 +10,7 @@
        </tr> 
        <tr>
         <td>購入日時</td>
-         <td><%= @order.strftime('%Y/%m/%d') %></td>
+         <td></td>
        </tr> 
        <tr>
         <td>配送先</td>
@@ -25,7 +25,7 @@
        <%= form_with model: @order,url: admin_order_path(@order.id), local:true do |f| %> 
        <tr>
         <td>注文ステータス</td>
-        <td> <%= f.select (:order_status,Order.order_status.keys,{prompt: "--選択してください--"})  %></td>
+        <td> <%= f.select (:order_status,Order.order_status.{prompt: "--選択してください--"})  %></td>
         <td> <%= f.submit "更新" , class: 'btn btn-success' %></td>
        </tr>
        <% end %>
@@ -48,7 +48,7 @@
           <td><%= ordered_products.amount%></td>
           <td><%= ordered_products.amount* ordered_products.price%></td>
           <%= form_with model: order_products,url:  admin_path(ordered_products.id), local:true do |f| %> 
-          <td> <%= f.select (:order_products_status,Order.order_products_status.keys,{prompt: "--選択してください--"})  %></td>
+          <td> <%= f.select (:order_products_status,Order.order_products_status.{prompt: "--選択してください--"})  %></td>
           <td> <%= f.submit "更新" , class: 'btn btn-success' %></td>
           </tr>
          <% end %>

@@ -3,13 +3,10 @@ Rails.application.routes.draw do
   devise_for :admins,controllers:{
    sessions: 'admins/sessions'
   }
- # devise_for :admins, controllers: {
- #    sessions:      'admins/sessions',
- #    passwords:     'admins/passwords',
- #    registrations: 'admins/registrations'
- #  }
- devise_for :customers
 
+  devise_for :customers, controllers:{
+   sessions: 'customers/sessions'
+  }
   root 'homes#top'
   get 'home/about' => 'homes#about'
 
@@ -50,6 +47,7 @@ namespace :admin do
 
     resources :genres, only: [:new, :create, :edit, :update]
   end
-
+  # resources 内に入れると admin/admin/customer#hide を参照してしまうため外へ記述しました。
+    put 'admin/customers/hide/:id' => 'admin/customers#hide', as: 'admin_customer_hide'
 
 end

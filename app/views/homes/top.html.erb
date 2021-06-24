@@ -8,21 +8,23 @@
     </div>
   </div>
   
-  <h1>新着商品</h1>
+  <h3><strong>新着商品</strong></h3>
   <div class="row">
     <% @products.each do |product| %>
-      <div class="col-md-3">
-        <div class="card shadow-sm mt-3">
-          <%= link_to (attachment_image_tag product, :image, class: "card-img-top"), product_path(product.id) %>
-          <p class="ml-3"><%= product.name %></p>
-          <p class="ml-3">¥<%= product.price%></p>
-        </div>
+      <div class="col-sm-7 col-md-3 mt-4">
+        <%= link_to product_path(product.id), class: "card shadow-sm h-100 text-dark text-decoration-none" do %>
+          <%= attachment_image_tag product, :image, class: "card-img-top img-fluid" %>
+          <p class="card-body"><%= product.name %></p>
+          <p class="card-footer m-0">¥<%= product.price.to_s(:delimited) %></p>
+        <% end %>
       </div>
     <% end %>
   </div>
   
   <div class="row">
-    <%= link_to "全ての商品を見る>", products_path, class: "col text-right" %>
+    <div class="mx-auto mt-5">
+      <%= link_to "全ての商品を見る>", products_path, class: "btn btn-outline-secondary btn-sm" %>
+    </div>
   </div>
   
 </div>
