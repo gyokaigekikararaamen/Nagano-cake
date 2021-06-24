@@ -9,7 +9,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.freight = 800
     @order=Order.all
-  
+     @ordered_products=OrderedProduct.where(order_id: @order)
   end
 
   def update

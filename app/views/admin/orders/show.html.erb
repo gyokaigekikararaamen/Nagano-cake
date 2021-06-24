@@ -6,13 +6,13 @@
      <table border="0">
        <tr>
         <td>購入者</td>
-       <% link_to  admin_customer_path(@order.id)do %>
-        <td><%=@order.customer.name %></td>
+       <% link_to  admin_customer_path(@order)do %>
+        <td><%=@order.name %></td>
        <%end%>
        </tr> 
        <tr>
         <td>購入日時</td>
-         <td><%= @order.ordered_products.find_by(order_id:@order.id).created_at.strftime('%m/%d') %></td>
+         <td><%=@ordered_products.created_at.strftime('%m/%d') %></td>
        </tr> 
        <tr>
         <td>配送先</td>
@@ -44,12 +44,12 @@
        <tbody>
         <% @ordered_products.each do |ordered_products| %>
          <tr>
-          <td><%= ordered_products.product.name %></td>
+          <td><%= ordered_products.name %></td>
           <td><%= ordered_products.price*1.10%></td>
           <td><%= ordered_products.amount%></td>
           <td><%= ordered_products.price*1.10*ordered_products.amount%></td>円</td>
           <%= form_with model: order_products,url:  admin_path(ordered_products.id), local:true do |f| %> 
-          <td> </td>
+          <td> <%= f.collection_select(:order_products_status, @order_products.order_products_status, :integer, :order_products_status, {prompt: "--選択してください--"})  %></td>
           <td> <%= f.submit "更新" , class: 'btn btn-success' %></td>
           </tr>
           <% end %>
