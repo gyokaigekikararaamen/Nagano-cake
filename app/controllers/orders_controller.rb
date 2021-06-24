@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = current_customer.orders
+    @orders = current_customer.orders.where.not(order_status:0) #注文ステータスが0(未注文)以外の注文を取得
   end
 
   def show
-    @orders = Order.find(params[:id])
-    @order = Ordered_product.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def new
@@ -15,14 +14,6 @@ class OrdersController < ApplicationController
 
   def create
     order = Order.new(order_params)
-
-    billing_amount = 0
-		current_customer.cart_products.each do |cart_product|
-			 billing_amount += (cart_product.product.price * 1.1) * cart_product.amount
-		end
-
-    order.freight = 800
-    order.billing_amount =   billing_amount.floor
     order.customer_id = current_customer.id
     order.payment_method = params[:payment_method].to_i
 
@@ -51,10 +42,19 @@ class OrdersController < ApplicationController
 
   def confirm
     @order = Order.find(params[:id])
+    without_freight = 0
+		current_customer.cart_products.each do |cart_product| #商品の料金計算
+			 without_freight += (cart_product.product.price * 1.1) * cart_product.amount
+		end
+		@order.freight = 800
+    @order.billing_amount =   without_freight.floor + @order.freight
+		@order.save
   end
 
   def complete
     @order = Order.find(params[:id])
+    @order.order_status =  1
+    @order.save
     current_customer.cart_products.each do |cart_product|
 			ordered_product = OrderedProduct.new
 			ordered_product.order_id = @order.id
