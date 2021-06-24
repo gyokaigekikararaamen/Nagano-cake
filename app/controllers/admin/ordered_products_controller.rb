@@ -1,9 +1,10 @@
 class Admin::OrderedProductsController < ApplicationController
+  before_action :if_not_admin
   def index
-   
+
   end
   def show
-  
+
   end
   def update
     @order_products = OrderProducts.find(params[:id])
@@ -12,6 +13,10 @@ class Admin::OrderedProductsController < ApplicationController
      else
      render :show
      end
-  end 
+  end
  private
+ def if_not_admin
+   redirect_to admin_session_path unless admin_signed_in?
+ end
+
 end
