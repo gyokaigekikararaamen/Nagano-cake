@@ -1,4 +1,5 @@
 class Admin::OrderedProductsController < ApplicationController
+  before_action :if_not_admin
   def index
    
   end
@@ -14,4 +15,8 @@ class Admin::OrderedProductsController < ApplicationController
      end
   end 
  private
-end
+ def if_not_admin
+   redirect_to admin_session_path unless admin_signed_in?
+ end
+ 
+ end
