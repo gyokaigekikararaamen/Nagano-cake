@@ -15,7 +15,7 @@ class Admins::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   # def destroy
-  #   super
+  #   redirect_to new_admins_path
   # end
 
   # protected

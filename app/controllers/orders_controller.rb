@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       @order.postal_code = address.postal_code
       @order.address = address.address
       @order.name = address.name
-    else params[:address_order].to_i == 2
+    elsif params[:address_order].to_i == 2
 
     end
 
