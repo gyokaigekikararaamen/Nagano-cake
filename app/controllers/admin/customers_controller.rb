@@ -27,5 +27,4 @@ class Admin::CustomersController < ApplicationController
    redirect_to admin_session_path unless admin_signed_in?
   end
 
-
 end
