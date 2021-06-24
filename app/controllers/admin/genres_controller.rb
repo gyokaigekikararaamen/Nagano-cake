@@ -23,11 +23,10 @@ class Admin::GenresController < ApplicationController
     redirect_to new_admin_genre_path
   end
 
-private
-def genre_params
-  params.require(:genre).permit(:name)
-  
-end
+  private
+  def genre_params
+    params.require(:genre).permit(:name)
+  end
 
 def if_not_admin
   redirect_to admin_session_path unless admin_signed_in?
