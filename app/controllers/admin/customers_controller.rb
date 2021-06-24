@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
  before_action :if_not_admin
   def index
      @customer = Customer.page(params[:page]).reverse_order
-    
+
   end
 
   def show
@@ -26,6 +26,6 @@ class Admin::CustomersController < ApplicationController
   def if_not_admin
    redirect_to admin_session_path unless admin_signed_in?
   end
-  
+
 
 end
