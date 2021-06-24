@@ -3,6 +3,10 @@ class Product < ApplicationRecord
   has_many :customers, through: :cart_products
 
   has_many :ordered_products, dependent: :destroy
+
+  belongs_to :genre
+  attachment :image
+
   belongs_to :genre, optional: true
 
  def  add_tax_price
@@ -17,10 +21,12 @@ class Product < ApplicationRecord
     end
   end
 
+
  validates :genre_id, presence: true
  validates :name, presence: true
  validates :image, presence: true
  validates :description, presence: true
  validates :price, presence: true
  validates :product_status, presence: true
+
 end

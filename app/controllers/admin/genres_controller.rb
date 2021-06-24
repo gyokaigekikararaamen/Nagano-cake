@@ -1,6 +1,6 @@
 class Admin::GenresController < ApplicationController
   protect_from_forgery
-
+  before_action :if_not_admin
   def new
     @genre = Genre.new
     @genres = Genre.all
@@ -28,4 +28,7 @@ class Admin::GenresController < ApplicationController
     params.require(:genre).permit(:name)
   end
 
+def if_not_admin
+  redirect_to admin_session_path unless admin_signed_in?
+end
 end
