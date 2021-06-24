@@ -12,4 +12,5 @@ Admin.create!(
     password:  "aaaaaa"
 
 
+
     )
