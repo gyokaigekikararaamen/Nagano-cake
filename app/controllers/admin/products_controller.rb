@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-
+   before_action :if_not_admin
 
   def new
     @product = Product.new
@@ -41,6 +41,9 @@ class Admin::ProductsController < ApplicationController
   def post_product_params
      params.require(:product).permit(:genre_id,:name,:image,:description,:price,:product_status)
   end
-
+  
+  def if_not_admin
+   redirect_to admin_session_path unless admin_signed_in?
+  end
 
 end
