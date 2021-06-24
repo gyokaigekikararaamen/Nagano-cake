@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   devise_for :customers, controllers:{
    sessions: 'customers/sessions'
   }
-
   root 'homes#top'
   get 'home/about' => 'homes#about'
 
@@ -21,11 +20,11 @@ Rails.application.routes.draw do
  resources :addresses, only: [ :create, :index, :edit, :update,:destroy]
 
  get 'orders/confirm/:id' => 'orders#confirm', as: 'orders_confirm'
- get 'orders/complete/:id' => 'orders#complete', as: 'orders_complete'
- resources :orders, only: [:new, :create, :index, :show,]
- post 'orders/new' => 'orders#save'
+ get 'orders/thanks/' => 'orders#thanks', as: 'orders_thanks'
+ post 'orders/complete/:id' => 'orders#complete', as: 'orders_complete'
 
 
+ resources :orders, only: [:new, :create, :index, :show]
  resources :products, only: [:index, :show]
  resources :cart_products, only: [:create, :index,:destroy,:update]
  delete 'cart_products'  => 'cart_products#destroy_all'
