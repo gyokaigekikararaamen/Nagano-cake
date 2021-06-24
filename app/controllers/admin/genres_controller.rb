@@ -29,11 +29,7 @@ private
   end
 
   def if_not_admin
-    if customer_signed_in?
-      redirect_to admin_session_path
-    elsif admin_signed_in?
-      redirect_to admin_session_path
-    end
+   redirect_to admin_session_path unless admin_signed_in?
   end
 
 end
