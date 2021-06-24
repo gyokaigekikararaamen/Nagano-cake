@@ -23,10 +23,17 @@ class Admin::GenresController < ApplicationController
     redirect_to new_admin_genre_path
   end
 
+<<<<<<< HEAD
 private
 def genre_params
   params.require(:genre).permit(:name)
 
 end
+=======
+  private
+  def genre_params
+    params.require(:genre).permit(:name)
+  end
+>>>>>>> origin/develop
 
 end

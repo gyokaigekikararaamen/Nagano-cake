@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   def index
-  　 @orders = Order.order("id DESC").page(params[:page]).reverse_order
+    @orders = Order.order("id DESC").page(params[:page]).reverse_order
   end
 
   def show
