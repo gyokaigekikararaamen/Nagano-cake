@@ -14,6 +14,7 @@ class CartProductsController < ApplicationController
 
   def index
     @cart_products = CartProduct.where(customer_id: current_customer.id)
+    
     @total_price = 0
     @cart_products.each do |cart_product|
       @total_price += cart_product.product.price * cart_product.amount * 1.10
