@@ -19,14 +19,14 @@
   		<%= f.label :ご自身の住所 %>
     </div>
     <div>　〒<%= current_customer.postal_code %>　<%= current_customer.address %></br>
-      　　<%= current_customer.first_name %><%= current_customer.last_name %>
+      　　<%= current_customer.last_name %><%= current_customer.first_name %>
     </div>
 
     <div class="radio-inline">
       <%= f.radio_button :address_order, 1 %>
   		<%= f.label :登録済住所から選択 %>
     </div>
-    　<%= f.collection_select :chosed_address,current_customer.addresses, :id, :combine_address,:include_blank => "選択してください" %>
+    　<%= f.collection_select :chosed_address,current_customer.addresses, :id, :combine_address %>
 
     <div class="radio-inline">
       <%= f.radio_button :address_order, 2 %>

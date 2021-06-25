@@ -1,6 +1,8 @@
 <div class="container">
   <h2 class="my-5">配送先登録/一覧</h2>
   <%= form_with model: @address, local:true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
     <div class="form-group">
       <div class="row">
         <div class="col-sm-3"><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></div>

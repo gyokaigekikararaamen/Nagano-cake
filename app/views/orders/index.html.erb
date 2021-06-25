@@ -15,7 +15,7 @@
       <% @orders.each do |order| %>
       <tr>
         <td><%= order.ordered_products.find_by(order_id:order.id).created_at.strftime('%Y/%m/%d') %></td>　<!--注文に紐づいた注文商品の作成日時を利用-->
-        <td><%= order.postal_code %></br><%= order.address %></br><%= order.name %></td>
+        <td>〒<%= order.postal_code %></br><%= order.address %></br><%= order.name %></td>
         <td><% order.ordered_products.each do |ordered_product| %>
 				<%= ordered_product.product.name %><br>
 			<% end %></td>
