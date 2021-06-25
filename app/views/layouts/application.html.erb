@@ -43,7 +43,7 @@
               <li><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary mr-3" %></li>
               <li><%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-secondary mr-3" %></li>
               <li><%= link_to "ジャンル一覧", new_admin_genre_path, class: "btn btn-outline-secondary mr-3" %></li>
-              <li><%= link_to " ログアウト",destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mr-3"%></li>
+              <li><%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mr-3"%></li>
             <% else %>
               <li class="search-form">
                 <%= form_with url: search_products_path, method: :get, local: true do |f| %>

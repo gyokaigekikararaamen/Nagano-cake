@@ -5,12 +5,16 @@ class CartProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart_product.product_id = @product.id
     @cart_product.customer_id = current_customer.id
-    @cart_product.save
-    redirect_to cart_products_path
+    if @cart_product.save
+      redirect_to cart_products_path
+    else
+      redirect_to request.referer
+    end
   end
 
   def index
     @cart_products = CartProduct.where(customer_id: current_customer.id)
+    
     @total_price = 0
     @cart_products.each do |cart_product|
       @total_price += cart_product.product.price * cart_product.amount * 1.10
