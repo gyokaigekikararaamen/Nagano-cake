@@ -6,14 +6,14 @@ class Admin::OrderedProductsController < ApplicationController
   def show
 
   end
-  
+
   def update
     @order = Order.find(params[:id])
     @order_product = OrderedProduct.find(params[:id])
      if @order_product.update(ordered_product_params)
-       redirect_to admin_order_path(@order.id)
+       redirect_to request.referer
      else
-     render :show
+       render :show
      end
   end
 
@@ -25,11 +25,11 @@ class Admin::OrderedProductsController < ApplicationController
 
 
  private
- 
+
  def if_not_admin
    redirect_to admin_session_path unless admin_signed_in?
  end
- 
+
   def ordered_product_params
    params.require(:ordered_product).permit(:production_status)
   end
