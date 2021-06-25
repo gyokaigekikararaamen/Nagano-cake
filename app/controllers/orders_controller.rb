@@ -31,7 +31,6 @@ class OrdersController < ApplicationController
     end
 
     order.save
-
     if order.postal_code.presence && order.address.presence && order.name.presence
 			 redirect_to orders_confirm_path(order.id)
 		else

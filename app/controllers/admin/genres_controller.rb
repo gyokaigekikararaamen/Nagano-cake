@@ -17,6 +17,19 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
   end
 
+  def unsubscribe
+  end
+
+  def hide
+    @customer = Customer.find(params[:id])
+    if @customer.is_deleted == false
+      @customer.update(is_deleted: true)
+    else
+      @customer.update(is_deleted: false)
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   def update
     @genre = Genre.find(params[:id])
     @genre.update(genre_params)
@@ -34,6 +47,6 @@ private
    redirect_to admin_session_path unless admin_signed_in?
  end
 
-  
+
 
 end
