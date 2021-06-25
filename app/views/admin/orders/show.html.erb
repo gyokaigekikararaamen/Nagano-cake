@@ -7,7 +7,7 @@
         <tr>
           <th>購入者</th>
           <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
-          <% link_to  admin_customer_path(@order)do %>
+          <% link_to  admin_orderd_products_path(@order)do %>
             <td><%=@order.name %></td>
           <%end%>
         </tr>
@@ -29,7 +29,7 @@
           <th>注文ステータス</th>
           <td>
             <div class="d-flex">
-              <%= form_with model: @order,url: admin_order_path(@order.id), local:true do |f| %>
+              <%= form_with model: @order,url: admin_orderd_products_path(@order.id), local:true do |f| %>
                 <%= f.select :order_status, Order.order_statuses.keys, {prompt: "--選択してください--"} %>
                 <%= f.submit "更新" , class: 'btn btn-success' %>
               <% end %>
@@ -57,9 +57,9 @@
           <td><%= (ordered_product.product.price * 1.10).round.to_s(:delimited)%>円</td>
           <td><%= ordered_product.amount%></td>
           <td><%= (ordered_product.product.price * 1.10 * ordered_product.amount).round.to_s(:delimited)%>円</td>
-          <td> 
+          <td>
             <div>
-              <%= form_with model: @ordered_products, url: admin_path(ordered_product.id),local:true do |f| %>
+              <%= form_with model: @ordered_products, url: admin_orderd_products_path(ordered_product.id),local:true do |f| %>
                 <%= f.select :production_status, OrderedProduct.production_statuses.keys, {prompt: "--選択してください--"} %>
                 <%= f.submit "更新" , class: 'btn btn-success' %>
               <% end %>
