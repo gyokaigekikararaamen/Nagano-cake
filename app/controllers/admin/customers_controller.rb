@@ -1,7 +1,7 @@
 class Admin::CustomersController < ApplicationController
  before_action :if_not_admin
   def index
-     @customer = Customer.page(params[:page]).reverse_order
+     @customer = Customer.order("id DESC").page(params[:page]).reverse_order
 
   end
 
