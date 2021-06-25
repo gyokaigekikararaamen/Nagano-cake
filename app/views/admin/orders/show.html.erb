@@ -59,7 +59,7 @@
           <td><%= (ordered_product.product.price * 1.10 * ordered_product.amount).round.to_s(:delimited)%>円</td>
           <td> 
             <div>
-              <%= form_with model: @ordered_products, url: admin_path(ordered_product.id),local:true do |f| %>
+              <%= form_with model: @ordered_products, url: admin_path(ordered_product.id), local:true do |f| %>
                 <%= f.select :production_status, OrderedProduct.production_statuses.keys, {prompt: "--選択してください--"} %>
                 <%= f.submit "更新" , class: 'btn btn-success' %>
               <% end %>
