@@ -1,13 +1,13 @@
 <div class ="container">
-  <div class ="row">
-    <div class="mx-auto col-md-6 p-4 bg-light mt-4">
+  <div class ="row main-visual">
+    <div class="mx-auto col-md-6 p-4 mt-4">
       <p class="text-center">ようこそNagano Cakeへ!<br>
       このサイトは、ケーキ販売のECサイトになります。<br>
       会員でない方も商品の閲覧は可能ですが、<br>
       購入には会員登録が必要になります。</p>
     </div>
   </div>
-  
+
   <h3><strong>新着商品</strong></h3>
   <div class="row">
     <% @products.each do |product| %>
@@ -20,11 +20,11 @@
       </div>
     <% end %>
   </div>
-  
+
   <div class="row">
     <div class="mx-auto mt-5">
-      <%= link_to "全ての商品を見る>", products_path, class: "btn btn-outline-secondary btn-sm" %>
+      <%= link_to "全ての商品を見る", products_path, class: "btn btn-outline-secondary btn-sm" %>
     </div>
   </div>
-  
+
 </div>

@@ -21,6 +21,10 @@ class Product < ApplicationRecord
     end
   end
 
+  def self.search(keyword)
+    where(["name like? OR description like? OR genre_id like?", "%#{keyword}%", "%#{keyword}%","%#{keyword}%"])
+  end
+
 
  validates :genre_id, presence: true
  validates :name, presence: true
