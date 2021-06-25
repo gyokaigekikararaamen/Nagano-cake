@@ -28,8 +28,12 @@ private
     params.require(:genre).permit(:name)
   end
 
-  def if_not_admin
+
+
+ def if_not_admin
    redirect_to admin_session_path unless admin_signed_in?
-  end
+ end
+
+  
 
 end
