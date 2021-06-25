@@ -28,13 +28,13 @@
           <thead>
             <tr>
               <th>ジャンル</th>
-              <td></td>
+              <th></th>
             </tr>
           </thead>
           <% @genres.each do |genre| %>
           <tbody>
             <tr>
-              <td><div class="mr-5 mt-3"><%= genre.name %></div></td>
+              <td><%= genre.name %></td>
               <td class="text-center"><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn btn-success" %></td>
             </tr>
           </tbody>
