@@ -41,7 +41,9 @@ namespace :admin do
 
     resources :products, except: [:destroy]
 
-    resources :orders, only: [:update,:index, :show,]
+    resources :orders, only: [:update,:index, :show]
+
+    patch 'ordered_products/:id' => 'ordered_products#update'
 
 
     resources :genres, only: [:new, :create, :edit, :update]
