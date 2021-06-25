@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :if_not_admin
   def index
     @orders = Order.all.where.not(order_status:0)
-    
+
   end
 
   def show

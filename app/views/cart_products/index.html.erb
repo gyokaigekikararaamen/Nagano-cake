@@ -23,7 +23,6 @@
               <div class="text-center">
                 <%= form_with model: @cart_product, url: cart_product_path(cart_product.id), method: :patch, local: true do |f| %>
                   <%= f.number_field :amount, value: cart_product.amount, max: 5, min: 1 %>
-
                   <%= f.submit "変更", class: "btn btn-success btn-sm ml-3" %>
                 <% end %>
               </div>

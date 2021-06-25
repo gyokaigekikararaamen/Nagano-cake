@@ -43,8 +43,8 @@ namespace :admin do
 
     resources :orders, only: [:update,:index, :show,]
 
-    patch 'ordered_products/:id' => 'admin/ordered_products#update'
-    
+    patch 'ordered_products/:id' => 'ordered_products#update'
+
     resources :genres, only: [:new, :create, :edit, :update]
   end
   # resources 内に入れると admin/admin/customer#hide を参照してしまうため外へ記述しました。
