@@ -1,3 +1,4 @@
+<div class="container">
  <h4> 注文履歴詳細</h4>
   <div class='row'>
 
@@ -35,7 +36,7 @@
             </div>
           </td>
         </tr>
-      </table> 
+      </table>
        </div>
 
 <!--下側のordered_productテーブル-->
@@ -59,7 +60,7 @@
           <td>
             <div>
               <%= form_with model: @ordered_products, url:  admin_path(ordered_product.id),  method: :patch,local:true do |f| %>
-                <%= f.select :production_status, OrderedProduct.production_statuses.keys, {prompt: ordered_product.production_status}%>
+                <%= f.select :production_status, OrderedProduct.production_statuses.keys, {selected: ordered_product.production_status}%>
                 <%= f.submit "更新" , class: 'btn btn-success' %>
               <% end %>
             </div>
@@ -70,7 +71,7 @@
     </table>
 
     <div class="col-md-8">
-      <table class="table"> 
+      <table class="table">
        <th>商品合計</th>
         <td><%= @order.billing_amount%>円</td>
         <th>送料</th>
@@ -80,4 +81,4 @@
        </table>
     </div>
   </div>
-</div> 
+</div>
