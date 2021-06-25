@@ -1,12 +1,11 @@
-<div class='container'>
-  <h4> 注文履歴詳細</h4>
+ <h4> 注文履歴詳細</h4>
   <div class='row'>
 
     <div class="col-md-10">
       <table border="0">
         <tr>
           <th>購入者</th>
-          <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+          <td><%= @order.name%></td>
           <% link_to  admin_customer_path(@order)do %>
             <td><%=@order.name %></td>
           <%end%>
@@ -36,8 +35,8 @@
             </div>
           </td>
         </tr>
-      </table>
-    </div>
+      </table> 
+       </div>
 
 <!--下側のordered_productテーブル-->
     <table class="table border mt-3">
@@ -59,8 +58,8 @@
           <td><%= (ordered_product.product.price * 1.10 * ordered_product.amount).round.to_s(:delimited)%>円</td>
           <td> 
             <div>
-              <%= form_with model: @ordered_products, url: admin_path(ordered_product.id),local:true do |f| %>
-                <%= f.select :production_status, OrderedProduct.production_statuses.keys, {prompt: "--選択してください--"} %>
+              <%= form_with model: @ordered_products, url:  admin_path(ordered_product.id),  method: :patch,local:true do |f| %>
+                <%= f.select :production_status, OrderedProduct.production_statuses.keys, {prompt: ordered_product.production_status}%>
                 <%= f.submit "更新" , class: 'btn btn-success' %>
               <% end %>
             </div>
@@ -71,16 +70,14 @@
     </table>
 
     <div class="col-md-8">
-      <table class="table">
-        <tr>
-        <th>商品合計</th>
+      <table class="table"> 
+       <th>商品合計</th>
         <td><%= @order.billing_amount%>円</td>
         <th>送料</th>
         <td><%=@order.freight %></td>
         <th>商品合計</th>
         <td><%= @order.billing_amount+@order.freight %>円</td>
-        </tr>
-      </table>
+       </table>
     </div>
   </div>
-</div>
+</div> 
