@@ -6,20 +6,20 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-2"><%= f.label :name,"名前" %></div>
-            <div class="col-sm-1"><%= f.label :first_name,"(姓)" %></div>
-            <div class="col-sm-3"><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",class:"form-control" %></div>
-            <div class="col-sm-1"><%= f.label :last_name,"(名)" %></div>
-            <div class="col-sm-3"><%= f.text_field :last_name, autocomplete: "last_name",class:"form-control" %></div>
+            <div class="col-sm-1"><%= f.label :last_name,"(姓)" %></div>
+            <div class="col-sm-3"><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class:"form-control" %></div>
+            <div class="col-sm-1"><%= f.label :first_name,"(名)" %></div>
+            <div class="col-sm-3"><%= f.text_field :first_name, autocomplete: "first_name",class:"form-control" %></div>
           </div>
         </div>
 
         <div class="form-group">
           <div class="row">
             <div class="col-sm-2"><%= f.label :kana_name,"フリガナ" %></div>
-            <div class="col-sm-1"><%= f.label :kana_first_name,"(セイ)" %></div>
-            <div class="col-sm-3"><%= f.text_field :kana_first_name, autocomplete: "kana_first_name",class:"form-control" %></div>
-            <div class="col-sm-1"><%= f.label :kana_last_name,"(メイ)" %></div>
+            <div class="col-sm-1"><%= f.label :kana_last_name,"(セイ)" %></div>
             <div class="col-sm-3"><%= f.text_field :kana_last_name, autocomplete: "kana_last_name",class:"form-control" %></div>
+            <div class="col-sm-1"><%= f.label :kana_first_name,"(メイ)" %></div>
+            <div class="col-sm-3"><%= f.text_field :kana_first_name, autocomplete: "kana_first_name",class:"form-control" %></div>
           </div>
         </div>
 
