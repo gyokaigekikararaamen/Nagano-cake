@@ -5,11 +5,8 @@ class CartProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart_product.product_id = @product.id
     @cart_product.customer_id = current_customer.id
-    if @cart_product.save
-      redirect_to cart_products_path
-    else
-      redirect_to request.referer
-    end 
+    @cart_product.save
+    redirect_to cart_products_path
   end
 
   def index

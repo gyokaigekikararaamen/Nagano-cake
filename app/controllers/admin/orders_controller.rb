@@ -1,13 +1,15 @@
 class Admin::OrdersController < ApplicationController
   before_action :if_not_admin
   def index
-    @orders = Order.order("id DESC").page(params[:page]).reverse_order
+    @orders = Order.all.where.not(order_status:0)
+    
   end
 
   def show
     @order = Order.find(params[:id])
-    @order_products = OrderProducts.where(order_id: order_id = @order.id)
-    @total_price =@order_products.sum(:price)
+    @order.freight = 800
+    @order=Order.all
+     @ordered_products=OrderedProduct.where(order_id: @order)
   end
 
   def update
