@@ -22,7 +22,23 @@ class Admin::OrdersController < ApplicationController
      if @order.update(order_params)
        redirect_to admin_order_path(@order.id)
      else
-     render :show
+    #@order=Order.all
+     @ordered_product=OrderedProduct.find(params[:id])
+     @ordered_products=OrderedProduct.where(order_id: @order)
+     end
+  end
+ 
+  def update
+    @order = Order.find(params[:id])
+      @ordered_product=OrderedProduct.find(params[:id])
+     if @order.update(order_params) && @order.order_status=="入金確認"
+         @ordered_product.production_status = "制作待ち"
+         @ordered_product.update(ordered_product_params)
+         redirect_to admin_order_path(@order.id)
+     elsif @order.update(order_params)
+      redirect_to admin_order_path(@order.id)
+     else
+      render :show
      end
   end
  
@@ -34,4 +50,10 @@ class Admin::OrdersController < ApplicationController
  def if_not_admin
    redirect_to admin_session_path unless admin_signed_in?
  end
+  
+  def ordered_product_params
+   params.permit(:production_status)
+  end
+
+
 end
