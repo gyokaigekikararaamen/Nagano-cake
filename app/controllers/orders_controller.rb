@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+   before_action :authenticate_customer!
 
   def index
     @orders = current_customer.orders.where.not(order_status:0) #注文ステータスが0(未注文)以外の注文を取得
@@ -20,7 +21,7 @@ class OrdersController < ApplicationController
     if params[:address_order] == "0"
       order.postal_code = current_customer.postal_code
       order.address = current_customer.address
-      order.name = current_customer.first_name + current_customer.last_name
+      order.name = current_customer.last_name + current_customer.first_name
     elsif params[:address_order] == "1"
       address = Address.find(params[:chosed_address])
       order.postal_code = address.postal_code
@@ -37,7 +38,7 @@ class OrdersController < ApplicationController
 			 redirect_to orders_new_path
 		end
 
-  end
+	end
 
   def confirm
     @order = Order.find(params[:id])
@@ -54,7 +55,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.order_status =  1
     @order.save
-    current_customer.cart_products.each do |cart_product|
+    current_customer.cart_products.each do |cart_product| #注文商品に登録
 			ordered_product = OrderedProduct.new
 			ordered_product.order_id = @order.id
 			ordered_product.product_id = cart_product.product.id

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
  resources :cart_products, only: [:index,:destroy,:update]
  delete 'cart_products'  => 'cart_products#destroy_all', as:'destroy_cart_products'
  post 'cart_product/:id' => 'cart_products#create', as:'create_cart_products'
+ get 'search' => 'products#search', as:'search_products'
 
 
 namespace :admin do
