@@ -2,7 +2,7 @@ class AddressesController < ApplicationController
    before_action :authenticate_customer!
 
   def index
-    @addresses = current_customer.addresses
+    @addresses = current_customer.addresses.page(params[:page]).reverse_order
     @address = Address.new
   end
 
@@ -12,7 +12,7 @@ class AddressesController < ApplicationController
     if @address.save
     redirect_to addresses_path
     else
-    @addresses = current_customer.addresses
+    @addresses = current_customer.addresses.page(params[:page]).reverse_order
     render "index"
     end
   end

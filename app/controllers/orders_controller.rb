@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
    before_action :authenticate_customer!
 
   def index
-    @orders = current_customer.orders.where.not(order_status:0) #注文ステータスが0(未注文)以外の注文を取得
+    @orders = current_customer.orders.where.not(order_status:0).page(params[:page]).reverse_order #注文ステータスが0(未注文)以外の注文を取得
   end
 
   def show
