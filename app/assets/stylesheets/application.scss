@@ -21,10 +21,53 @@
     height: 150px;
     object-fit: cover;
 }
-
-.main-visual {
+.image{
+  height: 300px;
+}
+.image1 {
+ 
+  width: 100%;
+  background-image: url(cake.jpg);
+  background-size: cover;
+  background-position: top;
+}
+.image2 {
   width: 100%;
   background-image: url(hotcake.jpg);
+  background-size: auto;
+  background-position: center;
+}
+.image3 {
+  width: 100%;
+  background-image: url(chocolate-piece.jpg);
   background-size: cover;
   background-position: center;
+}
+.image4 {
+  width: 100%;
+  background-image: url(strawberrycake-piece.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.image5 {
+  width: 100%;
+  background-image: url(raspberry_pudding.jpg);
+  background-size: cover;
+  background-position: center;
+}
+header{
+   background-color:#f55e61;
+}
+footer{
+   background-color:#f55e61 ;
+}
+
+body{
+  background-color:#ffffe0;
+}
+.title{
+  color: #f55e61;
+}
+.top{
+  font-size: 20px;
 }

@@ -1,5 +1,6 @@
 class Admin::OrderedProductsController < ApplicationController
   before_action :if_not_admin
+  def index
 
   end
 
@@ -31,6 +32,6 @@ class Admin::OrderedProductsController < ApplicationController
 
   def ordered_product_params
    params.require(:ordered_product).permit(:production_status)
-  end
+ end
 
 end

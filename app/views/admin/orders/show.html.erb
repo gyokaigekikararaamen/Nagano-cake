@@ -75,15 +75,10 @@
     <div class="col-md-8">
       <table class="table">
        <th>商品合計</th>
-        <td><%= @order.billing_amount - @order.freight%>円</td>
-        <th>送料</th>
-        <td><%=@order.freight %></td>
-        <th>商品合計</th>
-        <td><%= @order.billing_amount%>円</td>
         <td><%= @order.billing_amount - @order.freight %>円</td>
         <th>送料</th>
         <td><%=@order.freight %></td>
-        <th>商品合計</th>
+        <th>請求金額合計</th>
         <td><%= @order.billing_amount %>円</td>
        </table>
     </div>
