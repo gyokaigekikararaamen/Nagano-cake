@@ -8,16 +8,6 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order.freight = 800
-    @ordered_product = @order.ordered_products
-    @ordered_products=OrderedProduct.where(order_id: @order)
-  
-  end
- 
-  def update
-    @order = Order.find(params[:id])
-    if @order.update(order_params)
-      redirect_to admin_order_path(@order.id)
-    else
     #@order=Order.all
     @ordered_product=@order.ordered_products
 
@@ -63,7 +53,7 @@ class Admin::OrdersController < ApplicationController
 
   private
  def order_params
-   params.require(:order).permit(:order_status)
+ params.require(:order).permit(:order_status)
  end
 
  def if_not_admin

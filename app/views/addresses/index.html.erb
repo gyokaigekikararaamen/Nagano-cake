@@ -1,5 +1,7 @@
 <div class="container">
-  <h2 class="my-5">配送先登録/一覧</h2>
+  <div class="row">
+    <h4 class="my-5 text-center bg-secondary text-white rounded-pill p-2">配送先登録 / 一覧</h4>
+  </div>
   <%= form_with model: @address, data: {remote: true} do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
 
@@ -24,7 +26,7 @@
       </div>
     </div>
 
-    <%= f.submit "登録する",class: "btn btn-outline-secondary mr-3" %>
+    <%= f.submit "登録する",class: "btn btn-outline-secondary mb-3" %>
   <% end %>
 <div id="address">
 <%= render 'addresses/address', addresses: @addresses %>

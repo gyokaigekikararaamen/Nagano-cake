@@ -28,3 +28,23 @@
   background-size: cover;
   background-position: center;
 }
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+.pagination>.active>a {     
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #5a6570;
+    border-color: #5a6570;
+}

@@ -16,7 +16,7 @@
     <% if customer_signed_in? %>
       <%= form_with model: @cart_product, url: create_cart_products_path, class: "d-flex", local: true do |f| %>
         <%= f.select :amount, [["1個", "1"], ["2個", "2"], ["3個", "3"], ["4個", "4"], ["5個", "5"]], {include_blank: "個数選択"}, {class: "form-control"} %>
-        <%= f.submit "カートに入れる", class: "btn btn-success ml-4" %>
+        <%= f.submit "カートに入れる", class: "btn btn-outline-secondary ml-4" %>
       <% end %>
     <% else %>
       <%= link_to "商品の購入には会員登録が必要です", new_customer_registration_path, class: "btn btn-outline-secondary" %>
