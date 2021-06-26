@@ -1,0 +1,24 @@
+  <table class="table table-bordered table-layout:fixed width:100%">
+    <thead>
+      <tr>
+        <td style="width: 20%">郵便番号</td>
+        <td style="width: 30%">住所</td>
+        <td style="width: 20%">宛名</td>
+        <td style="width: 30%"></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% addresses.each do |addresses| %>
+        <tr>
+          <td ><%= addresses.postal_code %></td>
+          <td ><%= addresses.address %></td>
+          <td ><%= addresses.name %></td>
+          <td>
+            <%= link_to "編集する", edit_address_path(addresses.id),class: "btn btn-outline-secondary mr-3" %>
+            <%= link_to "削除する", address_path(addresses.id), class: "btn btn-outline-secondary mr-3", method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate addresses %>
