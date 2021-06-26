@@ -7,10 +7,11 @@ class AddressesController < ApplicationController
   end
 
   def create
+    @addresses = current_customer.addresses.page(params[:page]).reverse_order
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
-    redirect_to addresses_path
+
     else
     @addresses = current_customer.addresses.page(params[:page]).reverse_order
     render "index"
@@ -31,9 +32,9 @@ class AddressesController < ApplicationController
   end
 
   def destroy
+    @addresses = current_customer.addresses.page(params[:page]).reverse_order
     address = Address.find(params[:id])
     address.destroy
-    redirect_to addresses_path
   end
 
   private
