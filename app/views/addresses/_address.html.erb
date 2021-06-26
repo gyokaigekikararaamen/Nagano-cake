@@ -15,7 +15,7 @@
           <td ><%= addresses.name %></td>
           <td>
             <%= link_to "編集する", edit_address_path(addresses.id),class: "btn btn-outline-secondary mr-3" %>
-            <%= link_to "削除する", address_path(addresses.id), class: "btn btn-outline-secondary mr-3", method: :delete %>
+            <%= link_to "削除する", address_path(addresses.id), class: "btn btn-outline-secondary mr-3", method: :delete, remote: true %>
           </td>
         </tr>
       <% end %>

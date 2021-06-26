@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="my-5">配送先登録/一覧</h2>
-  <%= form_with model: @address, remote: true do |f| %>
+  <%= form_with model: @address, data: {remote: true} do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
 
     <div class="form-group">
@@ -26,6 +26,7 @@
 
     <%= f.submit "登録する",class: "btn btn-outline-secondary mr-3" %>
   <% end %>
-
+<div id="address">
 <%= render 'addresses/address', addresses: @addresses %>
+</div>
 </div>
