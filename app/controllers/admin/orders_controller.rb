@@ -4,28 +4,28 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.all.where.not(order_status:0)
     
     @total_amount = 0
-    @order.ordered_products.each do |ordered_product|
-      @total_amount += ordered_product.amount
-    end
+    # @order.ordered_products.each do |ordered_product|
+    #   @total_amount += ordered_product.amount
+    # end
   end
 
   def show
     @order = Order.find(params[:id])
     @order.freight = 800
-    @ordered_products=OrderedProduct.find(params[:id])
+    @ordered_product = @order.ordered_products
     @ordered_products=OrderedProduct.where(order_id: @order)
   
   end
  
   def update
-     @order = Order.find(params[:id])
-     if @order.update(order_params)
-       redirect_to admin_order_path(@order.id)
-     else
+    @order = Order.find(params[:id])
+    if @order.update(order_params)
+      redirect_to admin_order_path(@order.id)
+    else
     #@order=Order.all
-     @ordered_product=OrderedProduct.find(params[:id])
-     @ordered_products=OrderedProduct.where(order_id: @order)
-     end
+    @ordered_product=OrderedProduct.find(params[:id])
+    @ordered_products=OrderedProduct.where(order_id: @order)
+    end
   end
  
   def update

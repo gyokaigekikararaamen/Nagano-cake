@@ -1,5 +1,11 @@
 <div class="container">
-  <div class="row">
+  
+  <div class="row pt-5">
+      <h4 class="col-md-5"><strong>ショッピングカート</strong></h4>
+      <%= link_to "カートを空にする", destroy_cart_products_path, method: :delete, class: "btn btn-danger ml-auto" %>
+  </div>
+  
+  <div>
     <table class="table table-bordered mt-3">
       <thead>
         <tr class="bg-light">
@@ -11,13 +17,9 @@
         </tr>
       </thead>
       <tbody>
-    <h4 class="col-md-5"><strong>ショッピングカート</strong></h4>
-      <%= link_to "カートを空にする", destroy_cart_products_path, method: :delete, class: "btn btn-danger ml-auto" %>
-  </div>
         <% @cart_products.each do |cart_product| %>
           <tr>
             <td colspan="3"><%= cart_product.product.name %></td>
-
             <td><%= cart_product.product.add_tax_price.to_s(:delimited) %>円</td>
             <td>
               <div class="text-center">
