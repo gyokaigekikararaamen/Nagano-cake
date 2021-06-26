@@ -53,6 +53,6 @@ namespace :admin do
     put 'admin/customers/hide/:id' => 'admin/customers#hide', as: 'admin_customer_hide'
 
     post '/admin/ordered_products/:id' => 'admin/orders#show', as: 'admin_orderd_products'
-    
+
 
 end

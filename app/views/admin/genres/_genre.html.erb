@@ -1,0 +1,16 @@
+      <%= form_with model: genre, url:'/admin/genres', local:true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <div class="mr-5">ジャンル名</div>
+                  </th>
+                <th>
+                  <div class="mr-5"><%= f.text_field :name, class:"form-control"%></div>
+                </th>
+                <th><%= f.submit '新規登録', class:"btn btn-success" %></th>
+              </tr>
+            </tbody>
+          </table>
+      <% end %>

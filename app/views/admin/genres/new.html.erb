@@ -6,7 +6,6 @@
         </div>
        <div class="form-group mt-5">
           <%= form_with model:@genre, url:'/admin/genres', local:true do |f| %>
-          <%= render 'layouts/error_messages', model: f.object %>
           <table>
             <tbody>
               <tr>
@@ -29,13 +28,13 @@
           <thead>
             <tr>
               <th>ジャンル</th>
-              <th></th>
+              <td></td>
             </tr>
           </thead>
           <% @genres.each do |genre| %>
           <tbody>
             <tr>
-              <td><%= genre.name %></td>
+              <td><div class="mr-5 mt-3"><%= genre.name %></div></td>
               <td class="text-center"><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn btn-success" %></td>
             </tr>
           </tbody>
