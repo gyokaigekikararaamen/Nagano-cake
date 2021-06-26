@@ -15,7 +15,7 @@ class Admin::ProductsController < ApplicationController
     @product=Product.new(post_producut_params)
     if @product.save
      redirect_to  admin_product_path(@product.id)
-    elses
+    else
      redirect_to  new_admin_product_path
     end
   end

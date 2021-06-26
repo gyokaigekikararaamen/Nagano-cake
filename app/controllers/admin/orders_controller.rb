@@ -27,10 +27,8 @@ class Admin::OrdersController < ApplicationController
         @ordered_product.update(ordered_product_params)
          @order.update(order_params) 
        redirect_to admin_order_path(@order.id)
-    
      elsif @order.update(order_params)
        redirect_to admin_order_path(@order.id)
-    
      else
         render :show  
      end
