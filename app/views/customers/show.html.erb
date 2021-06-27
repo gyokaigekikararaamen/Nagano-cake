@@ -1,6 +1,8 @@
 <div class="container">
-  <h2 class="my-5">マイページ</h2>
-  <h2>登録情報</h2><%= link_to "編集する", customer_edit_path,class: "btn btn-outline-secondary mr-3" %>
+  <div class="row">
+   <h4 class="my-5 text-center bg-secondary text-white rounded-pill p-2">マイページ</h4>
+  </div>
+  <h5>登録情報</h5><%= link_to "編集する", customer_edit_path,class: "btn btn-outline-secondary mb-3" %>
   <table class="table table-bordered">
     <tbody>
       <tr>
@@ -34,6 +36,6 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="mt-5">配送先</h2><%= link_to "一覧を見る", addresses_path,class: "btn btn-outline-secondary mr-3" %>
-  <h2 class="mt-5">注文履歴</h2><%= link_to "一覧を見る", orders_path,class: "btn btn-outline-secondary mr-3" %>
+  <h5 class="mt-5">配送先</h5><%= link_to "一覧を見る", addresses_path,class: "btn btn-outline-secondary mr-3" %>
+  <h5 class="mt-5">注文履歴</h5><%= link_to "一覧を見る", orders_path,class: "btn btn-outline-secondary mr-3" %>
 </div>

@@ -25,13 +25,18 @@ class Admin::OrderedProductsController < ApplicationController
    redirect_to admin_order_path(order_product.order_id)
   end
 
+
  private
+
  def if_not_admin
    redirect_to admin_session_path unless admin_signed_in?
  end
 
-  def ordered_product_params
-   params.require(:ordered_product).permit(:production_status)
+ def ordered_product_params
+  params.require(:ordered_product).permit(:production_status)
  end
-
+ 
+ def order_params
+  params.permit(:order_status)
+ end
 end
