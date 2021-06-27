@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8">
       <div class="col-md-3">
-        <div class="customers-tag mt-4 bg-light text-center">
+        <div class="bg-light customers-tag mt-4  text-center">
             <h5>会員一覧</h5>
         </div>
       </div>
@@ -53,9 +53,9 @@
             <td>会員ステータス</td>
             <td>
               <% if @customer.is_deleted != false %>
-                <%= link_to '有効', admin_customer_hide_path(@customer, post: {is_deleted: false}), method: :put, class: "btn btn-success" %>
+                <%= link_to '有効', admin_customer_hide_path(@customer, post: {is_deleted: false}), method: :put, class: "btn btn-outline-success" %>
               <% else %>
-                <%= link_to '退会', admin_customer_hide_path(@customer, post: {is_deleted: true}), method: :put, class: "btn btn-danger" %>
+                <%= link_to '退会', admin_customer_hide_path(@customer, post: {is_deleted: true}), method: :put, class: "btn btn-outline-danger" %>
               <% end %>
 
             </td>
@@ -63,7 +63,7 @@
         </tbody>
 
       </table>
-          <%= f.submit "変更を保存", class:"btn btn-success ml-5" %>
+          <%= f.submit "変更を保存", class:"btn btn-outline-secondary" %>
         <% end %>
     </div>
   </div>

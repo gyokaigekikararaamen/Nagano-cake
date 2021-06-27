@@ -1,4 +1,5 @@
-class Admin::OrdersController < ApplicationController
+
+ class Admin::OrdersController < ApplicationController
   before_action :if_not_admin
   def index
     @orders = Order.all.where.not(order_status:0)
@@ -51,7 +52,7 @@ class Admin::OrdersController < ApplicationController
     end
   end
 
-  private
+ private
  def order_params
  params.require(:order).permit(:order_status)
  end

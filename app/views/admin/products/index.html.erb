@@ -1,7 +1,7 @@
 <div class="container">
   <div class ="row mt-5">
     <p class="col-md-3 bg-light text-center"><strong>商品一覧</strong></p>
-    <%= link_to "新規登録",   new_admin_product_path, class: "btn btn-success ml-auto" %>
+    <%= link_to "新規登録",   new_admin_product_path, class: "btn btn-outline-secondary ml-auto" %>
     <table class="table border-bottom  mt-3">
     
      <thead>
@@ -24,7 +24,11 @@
         </td>
         <td><%= product.price %></td>
         <td><%= product.genre.name %></td>
+        <%if product.product_status =="販売中"%>
+        <td class="text-success font-weight-bold"><%= product.product_status %></td>
+        <% else %>
         <td><%= product.product_status %></td>
+        <% end %>
        </tr>
        <% end %>
       </tbody>

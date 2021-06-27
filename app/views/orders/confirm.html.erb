@@ -1,7 +1,5 @@
 <div class="container">
-  <div class="row">
-    <h4 class="my-5 text-center bg-secondary text-white rounded-pill p-2">注文情報確認</h4>
-  </div>
+  <h2 class="my-5">注文情報確認</h2>
   <table class="table table-bordered table-layout:fixed width:100%">
       <thead>
         <tr>
@@ -15,9 +13,9 @@
         <% current_customer.cart_products.each do |cart_product| %>
           <tr>
             <td><%= cart_product.product.name %></td>
-            <td><%= (cart_product.product.price * 1.1).floor %>円</td>
-            <td><%= cart_product.amount %>個</td>
-            <td><%= (cart_product.product.price * 1.1 * cart_product.amount).floor %>円</td>
+            <td><%= (cart_product.product.price * 1.1).floor %></td>
+            <td><%= cart_product.amount %></td>
+            <td><%= (cart_product.product.price * 1.1 * cart_product.amount).floor %></td>
           </tr>
         <% end %>
         <tr></tr>
@@ -29,15 +27,15 @@
         <tbody>
           <tr>
             <td>送料</td>
-            <td><%= @order.freight %>円</td>
+            <td><%= @order.freight %></td>
           </tr>
           <tr>
             <td>商品合計</td>
-            <td><%= @order.billing_amount %>円</td>
+            <td><%= @order.billing_amount %></td>
           </tr>
           <tr>
             <td>請求額</td>
-            <td><%= @order.billing_amount %>円</td>
+            <td><%= @order.billing_amount %></td>
           </tr>
         </tbody>
       </table>
