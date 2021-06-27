@@ -21,87 +21,13 @@
     height: 150px;
     object-fit: cover;
 }
-.image{
-  height: 300px;
-    width: 100%;
-}
-.image1 {
- 
-  width: 100%;
-  background-image: url(cake.jpg);
-  background-size: cover;
 
-}
-.image2 {
-  height: 100%;
+.main-visual {
   width: 100%;
   background-image: url(hotcake.jpg);
-  background-size: auto;
- 
-}
-.image3 {
-  width: 100%;
-  background-image: url(chocolate-piece.jpg);
-  background-size: cover;
-
-}
-.image4 {
-  width: 100%;
-  background-image: url(strawberrycake-piece.jpg);
-  background-size: cover;
-
-}
-.image5 {
-  width: 100%;
-  background-image: url(raspberry_pudding.jpg);
-  background-size: cover;
-
-}
-header{
-   background-color:#f55e61;
-}
-
-
-body{
-  background-color:#ffffe0;
-}
-h2{
-  color: #f55e61;
-}
-.top{
-  font-size: 20px;
-}
-.title{
-   background-color:#f55e61;
-}
-
-.table-top{
-  background-color:#f55e61;
-
-
-body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-}
-main {
-}
-
-footer {
-      height: 100px;
-      margin-top: auto;
-}
-
-.main-font {
-    font-family: fantasy;
-}
-
-.header {
-  background-image: url(header.jpg);
   background-size: cover;
   background-position: center;
 }
-
 
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
@@ -132,23 +58,3 @@ footer {
 .main-font {
     font-family: fantasy;
 }
-
-.header {
-  background-image: url();
-  background-size: cover;
-  background-position: center;
-}
-
->>>>>>> origin/develop
-.main{
-  background-image: url();
-  background-repeat: repeat;
-}
-header{
-  background-image: url();
-  background-repeat: repeat;
-
-}
-
-}
-

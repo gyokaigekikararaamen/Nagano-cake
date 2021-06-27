@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/skippr.css" />
-    <link rel="stylesheet" href="css/style.css" />
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
-
-    
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light ">
-      <div class="container">
-
   <body>
   <header class="header_out">
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
@@ -41,22 +31,20 @@
               <li><%= link_to "カート", cart_products_path, class: "btn btn-outline-secondary mr-3" %></li>
               <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary mr-3" %></li>
             <% elsif admin_signed_in? %>
-              <li class="mr-1 mt-2 text-center">管理者ログイン中</li>
-              <li class="search-form ml-5">
               <li class="mr-4 mt-2">管理者</br>ログイン中</li>
               <li class="search-form">
                 <%= form_with url: search_products_path, method: :get, local: true do |f| %>
                   <%= f.text_field :keyword, value: @keyword %>
-                  <%= f.submit "検索", class: "btn btn-outline-secondary mr-3 b-inline" %>
+                  <%= f.submit "検索", class: "btn btn-outline-secondary mr-3" %>
                 <% end %>
               </li>
-              <li><%= link_to "商品一覧", admin_products_path, class: "btn btn-outline-secondary mt-1 w-100" %></li>
-              <li><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary mt-1 w-100"  %></li>
-              <li><%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-secondary mt-1  w-100" %></li>
-              <li><%= link_to "ジャンル一覧", new_admin_genre_path, class: "btn btn-outline-secondary mt-1  w-100" %></li>
-              <li><%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mt-1  w-100"%></li>
+              <li><%= link_to "商品一覧", admin_products_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "ジャンル一覧", new_admin_genre_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mr-3"%></li>
             <% else %>
-              <li class="search-form  mt-1">
+              <li class="search-form">
                 <%= form_with url: search_products_path, method: :get, local: true do |f| %>
                   <%= f.text_field :keyword, value: @keyword %>
                   <%= f.submit "検索", class: "btn btn-outline-secondary mr-3" %>
@@ -73,16 +61,8 @@
     </nav>
   </header>
 
-  <body>
-     
-  </body>
 
   <main class="main">
-    <%= yield %>
-  </main>
-
-  <main class="main">
-
     <%= yield %>
   </main>
 
@@ -91,3 +71,4 @@
   </footer>
   </body>
 </html>
+©
