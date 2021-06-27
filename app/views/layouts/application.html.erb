@@ -3,12 +3,72 @@
   <head>
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+  <header class="header_out">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <div class="container header">
+        <div>
+          <%= link_to (image_tag "logo.jpg", size: '100x60'), root_path, class: "navbar-brand" %>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+          　<% if customer_signed_in? %>
+              <li class="mr-4 mt-2"><%= current_customer.last_name %>さん</br>はログイン中です</li>
+              <li class="search-form">
+                <%= form_with url: search_products_path, method: :get, local: true do |f| %>
+                  <%= f.text_field :keyword, value: @keyword %>
+                  <%= f.submit "検索", class: "btn btn-outline-secondary mr-3" %>
+                <% end %>
+              </li>
+              <li><%= link_to "マイページ", customer_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "カート", cart_products_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary mr-3" %></li>
+            <% elsif admin_signed_in? %>
+              <li class="mr-4 mt-2">管理者</br>ログイン中</li>
+              <li class="search-form">
+                <%= form_with url: search_products_path, method: :get, local: true do |f| %>
+                  <%= f.text_field :keyword, value: @keyword %>
+                  <%= f.submit "検索", class: "btn btn-outline-secondary mr-3" %>
+                <% end %>
+              </li>
+              <li><%= link_to "商品一覧", admin_products_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "ジャンル一覧", new_admin_genre_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mr-3"%></li>
+            <% else %>
+              <li class="search-form">
+                <%= form_with url: search_products_path, method: :get, local: true do |f| %>
+                  <%= f.text_field :keyword, value: @keyword %>
+                  <%= f.submit "検索", class: "btn btn-outline-secondary mr-3" %>
+                <% end %>
+              </li>
+              <li><%= link_to "About", home_about_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "商品一覧", products_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary mr-3" %></li>
+              <li><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary mr-3" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main class="main">
     <%= yield %>
+  </main>
+
+  <footer>
+    <p class="text-center mt-5 ">NaganoCake.Ltd</p>
+  </footer>
   </body>
 </html>
+©

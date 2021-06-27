@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <h4 class="my-5 text-center bg-secondary text-white rounded-pill p-2">配送先登録 / 一覧</h4>
+  </div>
+  <%= form_with model: @address, data: {remote: true} do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-3"><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></div>
+        <div class="col-sm-3"><%= f.text_field :postal_code, autocomplete: "postal_code",class:"form-control ", id: "text1" %></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-3"><%= f.label :address,"住所" %></div>
+        <div class="col-sm-9"><%= f.text_field :address, autocomplete: "address",class:"form-control ", id: "text2" %></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-3"><%= f.label :name,"宛名" %></div>
+        <div class="col-sm-3"><%= f.text_field :name, autocomplete: "name",class:"form-control ", id: "text3" %></div>
+      </div>
+    </div>
+
+    <%= f.submit "登録する",class: "btn btn-outline-secondary mb-3" %>
+  <% end %>
+    <table class="table table-bordered table-layout:fixed width:100%">
+      <thead>
+        <tr>
+          <td style="width: 20%">郵便番号</td>
+          <td style="width: 30%">住所</td>
+          <td style="width: 20%">宛名</td>
+          <td style="width: 30%"></td>
+        </tr>
+      </thead>
+      <tbody id="address">
+        <%= render 'addresses/address', addresses: @addresses %>
+      </tbody>
+    </table>
+    <%= paginate @addresses %>
+</div>

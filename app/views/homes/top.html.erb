@@ -1,0 +1,32 @@
+
+    <div class ="container">
+  <div class ="row main-visual">
+    <div class="mx-auto col-md-6 p-4 mt-4">
+      <p class="text-center main-font">ようこそNagano Cakeへ!<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧は可能ですが、<br>
+      購入には会員登録が必要になります。</p>
+    </div>
+  </div>
+  <div class="row">
+   <h4 class="mt-4 bg-secondary text-white rounded-pill p-2 text-center">新着商品</h4>
+  </div>
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-sm-7 col-md-3 mt-4">
+        <%= link_to product_path(product.id), class: "card shadow-sm h-100 text-dark text-decoration-none" do %>
+          <%= attachment_image_tag product, :image, class: "card-img-top img-fluid" %>
+          <p class="card-body"><%= product.name %></p>
+          <p class="card-footer m-0">¥<%= product.price.to_s(:delimited) %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto mt-5">
+      <%= link_to "全ての商品を見る", products_path, class: "btn btn-outline-secondary btn-sm" %>
+    </div>
+  </div>
+
+</div>
