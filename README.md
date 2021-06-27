@@ -6,8 +6,7 @@ DMMWEBCAMPのチーム開発で作成したアプリです。
 
 ## ・アプリトップページ
 
-![app_top](https://user-images.githubusercontent.com/81542430/123535488-0f179200-d75f-11eb-8b79-99f4426f4c41.jpeg)
-
+![app_top](https://user-images.githubusercontent.com/81542430/123535521-4be38900-d75f-11eb-8954-26c485d2e171.jpeg)
 
 -------------------------------
 
