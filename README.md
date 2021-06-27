@@ -1,4 +1,4 @@
-##Nagano-cake
+## Nagano-cake
 DMMWEBCAMPのチーム開発で作成したアプリです。
 
 作成開始日:6/12
