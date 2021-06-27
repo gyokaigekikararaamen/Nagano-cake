@@ -6,27 +6,38 @@
     <div class="form-group">
       <div class="row">
         <div class="col-sm-3"><%= f.label :postal_code,"郵便番号(ハイフンなし)" %></div>
-        <div class="col-sm-3"><%= f.text_field :postal_code, autocomplete: "postal_code",class:"form-control" %></div>
+        <div class="col-sm-3"><%= f.text_field :postal_code, autocomplete: "postal_code",class:"form-control ", id: "text1" %></div>
       </div>
     </div>
 
     <div class="form-group">
       <div class="row">
         <div class="col-sm-3"><%= f.label :address,"住所" %></div>
-        <div class="col-sm-9"><%= f.text_field :address, autocomplete: "address",class:"form-control" %></div>
+        <div class="col-sm-9"><%= f.text_field :address, autocomplete: "address",class:"form-control ", id: "text2" %></div>
       </div>
     </div>
 
     <div class="form-group">
       <div class="row">
         <div class="col-sm-3"><%= f.label :name,"宛名" %></div>
-        <div class="col-sm-3"><%= f.text_field :name, autocomplete: "name",class:"form-control" %></div>
+        <div class="col-sm-3"><%= f.text_field :name, autocomplete: "name",class:"form-control ", id: "text3" %></div>
       </div>
     </div>
 
     <%= f.submit "登録する",class: "btn btn-outline-secondary mr-3" %>
   <% end %>
-<div id="address">
-<%= render 'addresses/address', addresses: @addresses %>
-</div>
+    <table class="table table-bordered table-layout:fixed width:100%">
+      <thead>
+        <tr>
+          <td style="width: 20%">郵便番号</td>
+          <td style="width: 30%">住所</td>
+          <td style="width: 20%">宛名</td>
+          <td style="width: 30%"></td>
+        </tr>
+      </thead>
+      <tbody id="address">
+        <%= render 'addresses/address', addresses: @addresses %>
+      </tbody>
+    </table>
+    <%= paginate @addresses %>
 </div>

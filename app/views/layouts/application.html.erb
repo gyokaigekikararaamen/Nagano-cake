@@ -13,6 +13,10 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light ">
       <div class="container">
+  <body>
+  <header class="header_out">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <div class="container header">
         <div>
           <%= link_to (image_tag "logo.jpg", size: '100x60'), root_path, class: "navbar-brand" %>
         </div>
@@ -67,10 +71,14 @@
   <body>
      
   </body>
+
+  <main class="main">
+
     <%= yield %>
-  </body>
+  </main>
 
   <footer>
-    <p class="text-center mt-5">NaganoCake.Ltd</p>
+    <p class="text-center mt-5 ">NaganoCake.Ltd</p>
   </footer>
+  </body>
 </html>

@@ -74,6 +74,38 @@ h2{
 .title{
    background-color:#f55e61;
 }
+
 .table-top{
   background-color:#f55e61;
+
+
+body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
 }
+main {
+}
+
+footer {
+      height: 100px;
+      margin-top: auto;
+}
+
+.main-font {
+    font-family: fantasy;
+}
+
+.header {
+  background-image: url(header.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.main{
+  background-image: url();
+  background-repeat: repeat;
+}
+header{
+  background-image: url();
+  background-repeat: repeat;
