@@ -13,8 +13,8 @@ class AddressesController < ApplicationController
     if @address.save
 
     else
-    @addresses = current_customer.addresses.page(params[:page]).reverse_order
-    render "index"
+      @addresses = current_customer.addresses.page(params[:page]).reverse_order
+      render  "index"
     end
   end
 
