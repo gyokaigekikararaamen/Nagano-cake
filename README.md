@@ -6,9 +6,8 @@ DMMWEBCAMPのチーム開発で作成したアプリです。
 
 ## ・アプリトップページ
 
+![](app_top.jpeg)
 
-
-![bandicam 2021-06-27 14-40-45-382](https://user-images.githubusercontent.com/81542430/123534209-6b29e880-d756-11eb-8c6f-8314d1e55f85.jpg)
 -------------------------------
 
 ## ・アプリケーションの説明
