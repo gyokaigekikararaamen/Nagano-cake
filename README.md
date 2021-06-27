@@ -156,10 +156,10 @@ Ruby 2.5 以降 Rails 5.0 以降
  
 -------------------------------
 ## ・インストール
-$ git clone /github.com/gyokaigekikararaamen/Nagano-cake.git  
-$ cd naganocake  
-$ sh setup.sh  
-$ ~do anything~    
+$ git clone git@github.com:gyokaigekikararaamen/Nagano-cake.git  
+$ rails db:migrate  
+$ rails db:seed  
+$ bundle install  
 
 
 -------------------------------
