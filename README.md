@@ -156,10 +156,10 @@ Ruby 2.5 以降 Rails 5.0 以降
  
 -------------------------------
 ## ・インストール
-$ git clone 
-$ cd naganocake
-$ sh setup.sh
-$ ~do anything~
+$ git clone  
+$ cd naganocake  
+$ sh setup.sh  
+$ ~do anything~  
 
 
 -------------------------------
