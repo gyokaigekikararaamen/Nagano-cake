@@ -102,6 +102,32 @@ footer {
   background-position: center;
 }
 
+<<<<<<< HEAD
+=======
+body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+}
+main {
+}
+
+footer {
+      height: 100px;
+      margin-top: auto;
+}
+
+.main-font {
+    font-family: fantasy;
+}
+
+.header {
+  background-image: url(header.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+>>>>>>> origin/develop
 .main{
   background-image: url();
   background-repeat: repeat;
@@ -109,3 +135,7 @@ footer {
 header{
   background-image: url();
   background-repeat: repeat;
+<<<<<<< HEAD
+=======
+}
+>>>>>>> origin/develop
