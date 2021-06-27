@@ -102,8 +102,20 @@ footer {
   background-position: center;
 }
 
-<<<<<<< HEAD
-=======
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #5a6570;
+    border-color: #5a6570;
+}
+
+
 body {
       display: flex;
       flex-direction: column;
@@ -122,7 +134,7 @@ footer {
 }
 
 .header {
-  background-image: url(header.jpg);
+  background-image: url();
   background-size: cover;
   background-position: center;
 }
@@ -135,7 +147,8 @@ footer {
 header{
   background-image: url();
   background-repeat: repeat;
-<<<<<<< HEAD
-=======
+
 }
->>>>>>> origin/develop
+
+}
+

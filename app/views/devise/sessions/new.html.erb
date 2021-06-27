@@ -1,5 +1,7 @@
 <div class="container">
-  <h2 class="my-5">ログイン</h2>
+  <div class="row">
+   <h4 class="my-5 bg-secondary text-white rounded-pill p-2">ログイン</h4>
+  </div>
 
   <%= form_with model: @customer, url: customer_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 
@@ -22,6 +24,10 @@
 
     </div>
   <% end %>
-  <h2 class="my-5">会員登録がお済でない方</h2>
-  <p><%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。</p>
+
+  <div>
+    <h5 class="mt-5">会員登録がお済でない方はこちらから新規登録を行ってください。</h5>
+    <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary ml-2" %>
+  </div>
+
 </div>

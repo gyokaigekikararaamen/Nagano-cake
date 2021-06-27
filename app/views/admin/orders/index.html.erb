@@ -18,10 +18,10 @@
             <%= order.ordered_products.find_by(order_id:order.id).created_at.strftime('%Y/%m/%d') %>
             <%end%>
         </td>
-
         <td><%= order.customer.last_name%><%= order.customer.first_name%></td>
         <td><%= order.total_amount %></td>
         <td><%= order.order_status%></td>
+        <td><%= order.order_status %></td>lop
        </tr>
        <% end %>
       </tbody>

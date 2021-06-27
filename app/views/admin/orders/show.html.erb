@@ -10,6 +10,9 @@
          <td class="d-inline-block  ml-2">
           <%=link_to  admin_customer_path(@order)do %>
             <%=@order.name %>
+          <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+          <% link_to admin_customer_path(@order)do %>
+            <td><%=@order.name %></td>
           <%end%>
          </td>
         </tr>
@@ -40,6 +43,7 @@
         </tr>
       </table>
        </div>
+
 
 <!--下側のordered_productテーブル-->
     <table class="table border mt-3">

@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
+
     
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -27,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
           　<% if customer_signed_in? %>
-              <li class="mr-4 mt-2 text-center"><%= current_customer.last_name %>さんはログイン中です</li>
+              <li class="mr-4 mt-2"><%= current_customer.last_name %>さん</br>はログイン中です</li>
               <li class="search-form">
                 <%= form_with url: search_products_path, method: :get, local: true do |f| %>
                   <%= f.text_field :keyword, value: @keyword %>
@@ -41,6 +43,8 @@
             <% elsif admin_signed_in? %>
               <li class="mr-1 mt-2 text-center">管理者ログイン中</li>
               <li class="search-form ml-5">
+              <li class="mr-4 mt-2">管理者</br>ログイン中</li>
+              <li class="search-form">
                 <%= form_with url: search_products_path, method: :get, local: true do |f| %>
                   <%= f.text_field :keyword, value: @keyword %>
                   <%= f.submit "検索", class: "btn btn-outline-secondary mr-3 b-inline" %>
